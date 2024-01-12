@@ -1,5 +1,6 @@
 import time
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 import requests
 import json
 import re
@@ -7,8 +8,8 @@ import re
 url = "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22%E6%B2%B3%E5%8C%97%22"
 #url = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki"
 
-# 创建一个Chrome WebDriver实例
-driver = webdriver.Chrome()
+# 使用webdriver_manager自动下载和管理chromedriver
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # 使用WebDriver访问网页
 driver.get(url)  # 将网址替换为你要访问的网页地址
