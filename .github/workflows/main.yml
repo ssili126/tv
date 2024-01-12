@@ -1,0 +1,39 @@
+name: IPTV Hebei
+
+on:
+  push:
+    schedule:
+    - cron: "0 * * * *"
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install selenium requests ChromeDriverManager
+
+      - name: Run script
+        run: python ${{ github.workspace }}/IPTV-hebei.py
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          name: iptv-hebei
+          path: ${{ github.workspace }}/
+
+      - name: Upload Text File
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          name: iptv_hebei.txt
+          path: ${{ github.workspace }}/iptv_hebei.txt
