@@ -47,8 +47,8 @@ def process_url(url):
 
     # 查找所有符合指定格式的网址
     pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式，如http://8.8.8.8:8888
-    urls = re.findall(pattern, page_content)
-
+    urls_all = re.findall(pattern, page_content)
+    urls = list(set(urls_all))  # 去重得到唯一的URL列表
     # 遍历网址列表，获取JSON文件并解析
     results = []
     for url in urls:
