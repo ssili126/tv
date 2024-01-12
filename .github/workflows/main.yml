@@ -21,7 +21,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install selenium requests ChromeDriverManager
+        run: pip install pywin32 selenium requests ChromeDriverManager
 
       - name: Run script
         run: python ${{ github.workspace }}/IPTV-hebei.py
