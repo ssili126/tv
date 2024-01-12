@@ -3,7 +3,9 @@ name: IPTV Hebei
 on:
   push:
     schedule:
-    - cron: "0 * * * *"
+      - name: daily_task
+        description: Run task every day at 4:00 PM
+        cron: "0 16 * * *"
     branches:
       - main
 
