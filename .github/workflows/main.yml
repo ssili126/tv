@@ -46,11 +46,5 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: iptv-hebei
+          name: iptv-all
           path: ${{ github.workspace }}/
-
-      - name: Upload Text File
-        uses: actions/upload-artifact@v4.0.0
-        with:
-          name: iptv_hebei.txt
-          path: ${{ github.workspace }}/iptv_hebei.txt
