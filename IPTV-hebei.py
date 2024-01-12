@@ -6,27 +6,18 @@ import json
 import re
 
 hebei = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki"        #河北
-beijing = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iYmVpamluZyI%3D"   #北京
 guangdong = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iZ3Vhbmdkb25nIg%3D%3D"    #广东
 shanghai = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ic2hhbmdoYWki"    #上海
-tianjin = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0idGlhbmppbiI%3D"    #天津
-chongqing = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iY2hvbmdxaW5nIg%3D%3D"    #重庆
-shanxi = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ic2hhbnhpIg%3D%3D"    #山西
+
 shaanxi = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iU2hhYW54aSI%3D"    #陕西
 liaoning = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ibGlhb25pbmci"    #辽宁
 jiangsu = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iamlhbmdzdSI%3D"    #江苏
-zhejiang = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iemhlamlhbmci"    #浙江
-anhui = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5a6J5b69Ig%3D%3D"    #安徽
-fujian = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iRnVqaWFuIg%3D%3D"    #福建
-jiangxi = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rGf6KW%2FIg%3D%3D"    #江西
+
 shandong = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bGx5LicIg%3D%3D"    #山东
 henan = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D"    #河南
 hubei = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5YyXIg%3D%3D"    #湖北
 hunan = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D"    #湖南
-sichuan = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5Zub5bedIg%3D%3D"    #四川
-guizhou = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iR3VpemhvdSI%3D"    #贵州
-neimenggu = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5YaF6JKZ5Y%2BkIg%3D%3D"    #内蒙古
-guangxi = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D"    #广西
+
 
 def process_url(url):
     # 创建一个Chrome WebDriver实例
@@ -118,10 +109,6 @@ def save_results(results, filename):
 results_hebei = process_url(hebei)
 save_results(results_hebei, "hebei.txt")
 
-# 处理第2个URL
-results_beijing = process_url(beijing)
-save_results(results_beijing, "beijing.txt")
-
 # 处理第3个URL
 results_guangdong = process_url(guangdong)
 save_results(results_guangdong, "guangdong.txt")
@@ -130,17 +117,6 @@ save_results(results_guangdong, "guangdong.txt")
 results_shanghai = process_url(shanghai)
 save_results(results_shanghai, "shanghai.txt")
 
-# 处理第5个URL
-results_tianjin = process_url(tianjin)
-save_results(results_tianjin, "tianjin.txt")
-
-# 处理第6个URL
-results_chongqing = process_url(chongqing)
-save_results(results_chongqing, "chongqing.txt")
-
-# 处理第7个URL
-results_shanxi = process_url(shanxi)
-save_results(results_shanxi, "shanxi.txt")
 
 # 处理第8个URL
 results_shaanxi = process_url(shaanxi)
@@ -154,21 +130,6 @@ save_results(results_liaoning, "liaoning.txt")
 results_jiangsu = process_url(jiangsu)
 save_results(results_jiangsu, "jiangsu.txt")
 
-# 处理第11个URL
-results_zhejiang = process_url(zhejiang)
-save_results(results_zhejiang, "zhejiang.txt")
-
-# 处理第12个URL
-results_anhui = process_url(anhui)
-save_results(results_anhui, "anhui.txt")
-
-# 处理第13个URL
-results_fujian = process_url(fujian)
-save_results(results_fujian, "fujian.txt")
-
-# 处理第14个URL
-results_jiangxi = process_url(jiangxi)
-save_results(results_jiangxi, "jiangxi.txt")
 
 # 处理第15个URL
 results_shandong = process_url(shandong)
@@ -185,19 +146,3 @@ save_results(results_hubei, "hubei.txt")
 # 处理第18个URL
 results_hunan = process_url(hunan)
 save_results(results_hunan, "hunan.txt")
-
-# 处理第19个URL
-results_sichuan = process_url(sichuan)
-save_results(results_sichuan, "sichuan.txt")
-
-# 处理第20个URL
-results_guizhou = process_url(guizhou)
-save_results(results_guizhou, "guizhou.txt")
-
-# 处理第21个URL
-results_neimenggu = process_url(neimenggu)
-save_results(results_neimenggu, "neimenggu.txt")
-
-# 处理第22个URL
-results_guangxi = process_url(guangxi)
-save_results(results_guangxi, "guangxi.txt")
