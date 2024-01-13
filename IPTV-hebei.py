@@ -40,6 +40,8 @@ def process_url(url):
     pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式，如http://8.8.8.8:8888
     urls_all = re.findall(pattern, page_content)
     urls = list(set(urls_all))  # 去重得到唯一的URL列表
+    for url in urls:
+        print(url)
     # 遍历网址列表，获取JSON文件并解析
     results = []
     for url in urls:
@@ -104,6 +106,7 @@ def save_results(results, filename):
     with open(filename, "w", encoding="utf-8") as file:
         for result in results:
             file.write(result + "\n")
+            print(result)
 
 # 处理第1个URL
 results_hebei = process_url(hebei)
