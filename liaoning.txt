@@ -1,3 +1,3 @@
-CCTV2HD,http://59.44.10.113:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV9HD,http://59.44.10.113:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV17HD,http://59.44.10.113:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV2,http://59.44.10.113:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV9,http://59.44.10.113:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV17,http://59.44.10.113:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0

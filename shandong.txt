@@ -4,7 +4,7 @@ CCTV3,http://112.245.59.7:50085/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&au
 CCTV4,http://112.245.59.7:50085/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV5,http://112.245.59.7:50085/tsfile/live/0005_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV6,http://112.245.59.7:50085/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV7国防军事,http://112.245.59.7:50085/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV7,http://112.245.59.7:50085/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV8,http://112.245.59.7:50085/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV9,http://112.245.59.7:50085/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV10,http://112.245.59.7:50085/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -49,10 +49,10 @@ CCTV5+,http://112.245.59.7:50085/tsfile/live/0016_2.m3u8?key=txiptv&playlive=1&a
 CCTV1,http://60.212.2.122:8154/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV2,http://60.212.2.122:8154/tsfile/live/0002_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV3,http://60.212.2.122:8154/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV4中文国际,http://60.212.2.122:8154/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV4,http://60.212.2.122:8154/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV5,http://60.212.2.122:8154/tsfile/live/0005_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV6,http://60.212.2.122:8154/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV7国防军事,http://60.212.2.122:8154/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV7,http://60.212.2.122:8154/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV8,http://60.212.2.122:8154/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV9,http://60.212.2.122:8154/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV10,http://60.212.2.122:8154/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -102,7 +102,6 @@ CCTV17,http://60.212.2.122:8154/tsfile/live/0019_1.m3u8?key=txiptv&playlive=1&au
 山东生活,http://60.212.2.122:8154/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
 山东体育,http://60.212.2.122:8154/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0
 山东少儿,http://60.212.2.122:8154/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0
-YD山东卫视,http://47.104.163.8:9901http://39.137.76.32:8089/00/SNM/CHANNEL00000051/index.m3u8
 CCTV1,http://60.217.73.227:83/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV2,http://60.217.73.227:83/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV3,http://60.217.73.227:83/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -143,3 +142,4 @@ IPTV相声小品,http://60.217.73.227:83/tsfile/live/1011_1.m3u8?key=txiptv&play
 CHC电影,http://60.217.73.227:83/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&authid=0
 中华美食,http://60.217.73.227:83/tsfile/live/1013_1.m3u8?key=txiptv&playlive=1&authid=0
 音乐现场,http://60.217.73.227:83/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0
+YD山东卫视,http://47.104.163.8:9901http://39.137.76.32:8089/00/SNM/CHANNEL00000051/index.m3u8
