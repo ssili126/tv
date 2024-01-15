@@ -67,6 +67,7 @@ def process_url(url):
                         # 删除特定文字
                         name = name.replace("中央", "CCTV")
                         name = name.replace("高清", "")
+                        name = name.replace("HD", "")
                         name = name.replace("标清", "")
                         name = name.replace("频道", "")
                         name = name.replace("-", "")
@@ -97,7 +98,6 @@ def process_url(url):
                         name = name.replace("CCTV17农业农村", "CCTV17")
                         name = name.replace("CCTV5+体育赛视", "CCTV5+")
                         name = name.replace("CCTV5+体育赛事", "CCTV5+")
-                        name = name.replace("HD,", ",")
                         results.append(f"{name},{urld}")
         except requests.exceptions.RequestException as e:
             print(f"Failed to process JSON for URL {json_url}. Error: {str(e)}")
