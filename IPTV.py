@@ -92,7 +92,7 @@ def process_url(url):
                         name = name.replace("CCTV11戏曲", "CCTV11")
                         name = name.replace("CCTV12社会与法", "CCTV12")
                         name = name.replace("CCTV13新闻", "CCTV13")
-                        name = name.replace("CCTV新闻"， "CCTV13")
+                        name = name.replace("CCTV新闻", "CCTV13")
                         name = name.replace("CCTV14少儿", "CCTV14")
                         name = name.replace("CCTV15音乐", "CCTV15")
                         name = name.replace("CCTV16奥林匹克", "CCTV16")
