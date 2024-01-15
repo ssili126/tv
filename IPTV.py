@@ -24,7 +24,6 @@ henan = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bn
 hubei = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5YyXIg%3D%3D"    #湖北
 hunan = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D"    #湖南
 
-
 def process_url(url):
     # 创建一个Chrome WebDriver实例
     chrome_options = Options()
@@ -75,7 +74,6 @@ def process_url(url):
                         name = name.replace("PLUS", "+")
                         name = name.replace("(", "")
                         name = name.replace(")", "")
-
                         name = name.replace("CCTV1综合", "CCTV1")
                         name = name.replace("CCTV2财经", "CCTV2")
                         name = name.replace("CCTV3综艺", "CCTV3")
@@ -96,10 +94,9 @@ def process_url(url):
                         name = name.replace("CCTV14少儿", "CCTV14")
                         name = name.replace("CCTV15音乐", "CCTV15")
                         name = name.replace("CCTV16奥林匹克", "CCTV16")
-
                         name = name.replace("CCTV17农业农村", "CCTV17")
                         name = name.replace("CCTV5+体育赛视", "CCTV5+")
-                        name = name.replace("CCTV5+体育赛事"， "CCTV5+")
+                        name = name.replace("CCTV5+体育赛事", "CCTV5+")
                         name = name.replace("HD,", ",")
                         results.append(f"{name},{urld}")
         except requests.exceptions.RequestException as e:
