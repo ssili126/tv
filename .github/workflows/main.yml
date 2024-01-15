@@ -51,6 +51,8 @@ jobs:
 
       - name: 提交更改
         run: |
+          git config --local user.email "ssili@126.com"
+          git config --local user.name "ssili126"
           git add .
           git commit -m "Add generated file"
           git push
