@@ -92,6 +92,7 @@ def process_url(url):
                         name = name.replace("CCTV11戏曲", "CCTV11")
                         name = name.replace("CCTV12社会与法", "CCTV12")
                         name = name.replace("CCTV13新闻", "CCTV13")
+                        name = name.replace("CCTV新闻"， "CCTV13")
                         name = name.replace("CCTV14少儿", "CCTV14")
                         name = name.replace("CCTV15音乐", "CCTV15")
                         name = name.replace("CCTV16奥林匹克", "CCTV16")
@@ -185,3 +186,15 @@ save_results(results_hubei, "hubei.txt")
 # 处理第18个URL
 results_hunan = process_url(hunan)
 save_results(results_hunan, "hunan.txt")
+
+# 合并文件内容
+file_contents = []
+file_paths = ["hebei.txt", "beijing.txt", "guangdong.txt", "shanghai.txt", "tianjin.txt", "chongqing.txt", "shanxi.txt", "shaanxi.txt", "liaoning.txt", "jiangsu.txt", "zhejiang.txt", "anhui.txt", "fujian.txt", "jiangxi.txt", "shandong.txt", "henan.txt", "hubei.txt", "hunan.txt"]  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    with open(file_path, 'r', encoding="utf-8") as file:
+        content = file.read()
+        file_contents.append(content)
+
+# 写入合并后的文件
+with open("IPTV.txt", "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
