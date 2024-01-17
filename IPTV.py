@@ -53,7 +53,7 @@ def process_url(url):
         try:
             # 发送GET请求获取JSON文件，设置超时时间为5秒
             json_url = f"{url}/iptv/live/1000.json?key=txiptv"
-            response = requests.get(json_url, timeout=5)
+            response = requests.get(json_url, timeout=3)
             json_data = response.json()
 
             # 解析JSON文件，获取name和url字段
