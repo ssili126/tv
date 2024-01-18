@@ -49,6 +49,6 @@ jobs:
           git config --local user.email "ssili@126.com"
           git config --local user.name "ssili126"
           git add .
-          git commit -m "Add generated file"
-          git pull --rebase
+          git commit *.txt -m "Add generated file"
+          #git pull --rebase
           git push -f
