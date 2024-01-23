@@ -56,50 +56,54 @@ def process_url(url):
             response = requests.get(json_url, timeout=3)
             json_data = response.json()
 
-            # 解析JSON文件，获取name和url字段
-            for item in json_data['data']:
-                if isinstance(item, dict):
-                    name = item.get('name')
-                    urlx = item.get('url')
-                    urld = f"{url}{urlx}"
+            try:
+                # 解析JSON文件，获取name和url字段
+                for item in json_data['data']:
+                    if isinstance(item, dict):
+                        name = item.get('name')
+                        urlx = item.get('url')
+                        urld = f"{url}{urlx}"
 
-                    if name and urlx:
-                        # 删除特定文字
-                        name = name.replace("中央", "CCTV")
-                        name = name.replace("高清", "")
-                        name = name.replace("HD", "")
-                        name = name.replace("标清", "")
-                        name = name.replace("频道", "")
-                        name = name.replace("-", "")
-                        name = name.replace(" ", "")
-                        name = name.replace("PLUS", "+")
-                        name = name.replace("(", "")
-                        name = name.replace(")", "")
-                        name = name.replace("CCTV1综合", "CCTV1")
-                        name = name.replace("CCTV2财经", "CCTV2")
-                        name = name.replace("CCTV3综艺", "CCTV3")
-                        name = name.replace("CCTV4国际", "CCTV4")
-                        name = name.replace("CCTV4中文国际", "CCTV4")
-                        name = name.replace("CCTV5体育", "CCTV5")
-                        name = name.replace("CCTV6电影", "CCTV6")
-                        name = name.replace("CCTV7军事", "CCTV7")
-                        name = name.replace("CCTV7军农", "CCTV7")
-                        name = name.replace("CCTV7国防军事", "CCTV7")
-                        name = name.replace("CCTV8电视剧", "CCTV8")
-                        name = name.replace("CCTV9记录", "CCTV9")
-                        name = name.replace("CCTV9纪录", "CCTV9")
-                        name = name.replace("CCTV10科教", "CCTV10")
-                        name = name.replace("CCTV11戏曲", "CCTV11")
-                        name = name.replace("CCTV12社会与法", "CCTV12")
-                        name = name.replace("CCTV13新闻", "CCTV13")
-                        name = name.replace("CCTV新闻", "CCTV13")
-                        name = name.replace("CCTV14少儿", "CCTV14")
-                        name = name.replace("CCTV15音乐", "CCTV15")
-                        name = name.replace("CCTV16奥林匹克", "CCTV16")
-                        name = name.replace("CCTV17农业农村", "CCTV17")
-                        name = name.replace("CCTV5+体育赛视", "CCTV5+")
-                        name = name.replace("CCTV5+体育赛事", "CCTV5+")
-                        results.append(f"{name},{urld}")
+                        if name and urlx:
+                            # 删除特定文字
+                            name = name.replace("中央", "CCTV")
+                            name = name.replace("高清", "")
+                            name = name.replace("HD", "")
+                            name = name.replace("标清", "")
+                            name = name.replace("频道", "")
+                            name = name.replace("-", "")
+                            name = name.replace(" ", "")
+                            name = name.replace("PLUS", "+")
+                            name = name.replace("＋", "+")
+                            name = name.replace("(", "")
+                            name = name.replace(")", "")
+                            name = name.replace("CCTV1综合", "CCTV1")
+                            name = name.replace("CCTV2财经", "CCTV2")
+                            name = name.replace("CCTV3综艺", "CCTV3")
+                            name = name.replace("CCTV4国际", "CCTV4")
+                            name = name.replace("CCTV4中文国际", "CCTV4")
+                            name = name.replace("CCTV5体育", "CCTV5")
+                            name = name.replace("CCTV6电影", "CCTV6")
+                            name = name.replace("CCTV7军事", "CCTV7")
+                            name = name.replace("CCTV7军农", "CCTV7")
+                            name = name.replace("CCTV7国防军事", "CCTV7")
+                            name = name.replace("CCTV8电视剧", "CCTV8")
+                            name = name.replace("CCTV9记录", "CCTV9")
+                            name = name.replace("CCTV9纪录", "CCTV9")
+                            name = name.replace("CCTV10科教", "CCTV10")
+                            name = name.replace("CCTV11戏曲", "CCTV11")
+                            name = name.replace("CCTV12社会与法", "CCTV12")
+                            name = name.replace("CCTV13新闻", "CCTV13")
+                            name = name.replace("CCTV新闻", "CCTV13")
+                            name = name.replace("CCTV14少儿", "CCTV14")
+                            name = name.replace("CCTV15音乐", "CCTV15")
+                            name = name.replace("CCTV16奥林匹克", "CCTV16")
+                            name = name.replace("CCTV17农业农村", "CCTV17")
+                            name = name.replace("CCTV5+体育赛视", "CCTV5+")
+                            name = name.replace("CCTV5+体育赛事", "CCTV5+")
+                            results.append(f"{name},{urld}")
+            except:
+                continue
         except requests.exceptions.RequestException as e:
             print(f"Failed to process JSON for URL {json_url}. Error: {str(e)}")
             continue
