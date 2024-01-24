@@ -1,7 +1,7 @@
 import re
 # 读取iptv.txt文件，提取频道信息
 channels = []
-with open('iptv.txt', 'r', encoding='utf-8') as file:
+with open('IPTV.txt', 'r', encoding='utf-8') as file:
     for line in file:
         line = line.strip()
         if line:
