@@ -37,6 +37,8 @@ jobs:
           sudo chmod +x /usr/local/bin/chromedriver
       - name: Run script
         run: python ${{ github.workspace }}/IPTV.py
+      - name: iptv_sort
+        run: python ${{ github.workspace }}/iptv_sort.py
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.0.0
