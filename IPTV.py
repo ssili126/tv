@@ -86,6 +86,13 @@ def process_url(url):
     for url in valid_urls:
         try:
             # 发送GET请求获取JSON文件，设置超时时间为0.5秒
+            ip_start_index = url.find("//") + 2
+            ip_dot_start = url.find(".") + 1
+            ip_index_second = url.find("/", ip_dot_start)
+            base_url = url[:ip_start_index]  # http:// or https://
+            ip_address = url[ip_start_index:ip_index_second]
+            url_x = f"{base_url}{ip_address}"
+            
             json_url = f"{url}"
             response = requests.get(json_url, timeout=0.5)
             json_data = response.json()
@@ -96,7 +103,7 @@ def process_url(url):
                     if isinstance(item, dict):
                         name = item.get('name')
                         urlx = item.get('url')
-                        urld = f"{url}{urlx}"
+                        urld = f"{url_x}{urlx}"
 
                         if name and urlx:
                             # 删除特定文字
