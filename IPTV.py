@@ -103,7 +103,10 @@ def process_url(url):
                     if isinstance(item, dict):
                         name = item.get('name')
                         urlx = item.get('url')
-                        urld = f"{url_x}{urlx}"
+                        if 'http' in urlx.lower():
+                            urld = f"{urlx}"
+                        else:
+                            urld = f"{url_x}{urlx}"
 
                         if name and urlx:
                             # 删除特定文字
