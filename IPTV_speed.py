@@ -27,8 +27,9 @@ with open("IPTV.txt", 'r', encoding='utf-8') as file:
 
     for line in lines:
         line = line.strip()
-        channel_name, channel_url = line.split(',')
-        channels.append((channel_name, channel_url))
+        if line:
+            channel_name, channel_url = line.split(',')
+            channels.append((channel_name, channel_url))
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
     futures = []
