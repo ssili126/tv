@@ -145,7 +145,10 @@ def process_url(url):
                             name = name.replace("CCTV17农业农村", "CCTV17")
                             name = name.replace("CCTV5+体育赛视", "CCTV5+")
                             name = name.replace("CCTV5+体育赛事", "CCTV5+")
-                            results.append(f"{name},{urld}")
+                            if 'udp' in urld or 'rtp' in urld:
+                                pass
+                            else:
+                                results.append(f"{name},{urld}")
             except:
                 continue
         except:
