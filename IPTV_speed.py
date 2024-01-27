@@ -29,7 +29,7 @@ with open("IPTV.txt", 'r', encoding='utf-8') as file:
         line = line.strip()
         if line:
             if 'rtp' in line or 'udp' in line:
-                
+                pass
             else:
                 channel_name, channel_url = line.split(',')
                 channels.append((channel_name, channel_url))
