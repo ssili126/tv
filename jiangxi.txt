@@ -36,3 +36,4 @@ CCTV15,http://171.35.124.21:10011/tsfile/live/0015_1.m3u8?key=txiptv&playlive=0&
 河北卫视,http://171.35.124.21:10011/tsfile/live/0117_1.m3u8?key=txiptv&playlive=0&authid=0
 黑龙江卫视,http://171.35.124.21:10011/tsfile/live/0143_1.m3u8?key=txiptv&playlive=0&authid=0
 云南卫视,http://171.35.124.21:10011/tsfile/live/0119_1.m3u8?key=txiptv&playlive=0&authid=0
+山东卫视,http://115.149.139.141:10001/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0
