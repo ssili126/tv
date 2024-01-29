@@ -14,7 +14,7 @@ results = []
 
 channels = []
 
-with open("IPTV.txt", 'r', encoding='utf-8') as file:
+with open("hebei.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
     for line in lines:
         line = line.strip()
