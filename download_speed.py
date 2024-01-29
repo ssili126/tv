@@ -45,14 +45,14 @@ def worker():
             download_speed = file_size / response_time /1024
             #print(f"下载速度：{download_speed:.3f} kB/s")
             normalized_speed = min(max(download_speed / 1024, 0.001), 100)  # 将速率从kB/s转换为MB/s并限制在1~100之间
-            #print(f"标准化后的速率：{normalized_speed:.3f} MB/s")
+            print(f"标准化后的速率：{normalized_speed:.3f} MB/s")
 
             # 获取帧宽度和帧高度
             cap = cv2.VideoCapture(ts_lists_0)
             frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
             frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
             cap.release()
-            #print(f"视频分辨率：{frame_width}X{frame_height}")
+            print(f"视频分辨率：{frame_width}X{frame_height}")
 
             # 删除下载的文件
             os.remove(ts_lists_0)
