@@ -23,7 +23,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install selenium requests futures queue opencv-python threading
+        run: pip install selenium requests futures opencv-python
 
       - name: Install Chrome WebDriver
         run: |
