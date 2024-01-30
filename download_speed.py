@@ -5,6 +5,8 @@ import time
 import threading
 from queue import Queue
 import requests
+import eventlet
+eventlet.monkey_patch()
 
 # 线程安全的队列，用于存储下载任务
 task_queue = Queue()
@@ -14,14 +16,13 @@ results = []
 
 channels = []
 
-with open("hebei.txt", 'r', encoding='utf-8') as file:
+with open("IPTV.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
     for line in lines:
         line = line.strip()
         if line:
             channel_name, channel_url = line.split(',')
             channels.append((channel_name, channel_url))
-
 
 # 定义工作线程函数
 def worker():
@@ -34,34 +35,35 @@ def worker():
             ts_lists = [line.split('/')[-1] for line in lines if line.startswith('#') == False]  # 获取m3u8文件下视频流后缀
             ts_lists_0 = ts_lists[0].rstrip(ts_lists[0].split('.ts')[-1])  # m3u8链接前缀
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
-            start_time = time.time()
-            content = requests.get(ts_url).content
-            end_time = time.time()
-            response_time = (end_time - start_time) * 1
-            with open(ts_lists_0, 'ab') as f:
-                f.write(content)  # 写入文件
-            file_size = len(content)
-            #print(f"文件大小：{file_size} 字节")
-            download_speed = file_size / response_time /1024
-            #print(f"下载速度：{download_speed:.3f} kB/s")
-            normalized_speed = min(max(download_speed / 1024, 0.001), 100)  # 将速率从kB/s转换为MB/s并限制在1~100之间
-            print(f"标准化后的速率：{normalized_speed:.3f} MB/s")
 
-            # 获取帧宽度和帧高度
-            cap = cv2.VideoCapture(ts_lists_0)
-            frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-            frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            cap.release()
-            print(f"视频分辨率：{frame_width}X{frame_height}")
+            # 多获取的视频数据进行5秒钟限制
+            with eventlet.Timeout(5, False):
+                start_time = time.time()
+                content = requests.get(ts_url).content
+                end_time = time.time()
+                response_time = (end_time - start_time) * 1
 
-            # 删除下载的文件
-            os.remove(ts_lists_0)
+            if content:
+                with open(ts_lists_0, 'ab') as f:
+                    f.write(content)  # 写入文件
+                file_size = len(content)
+                download_speed = file_size / response_time / 1024
+                normalized_speed = min(max(download_speed / 1024, 0.001), 100)  # 将速率从kB/s转换为MB/s并限制在1~100之间
 
-            result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s", f"{frame_width}X{frame_height}"
-            results.append(result)
+                # 获取帧宽度和帧高度
+                cap = cv2.VideoCapture(ts_lists_0)
+                frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                cap.release()
+
+                # 删除下载的文件
+                os.remove(ts_lists_0)
+                if frame_width != 0:
+                    result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s", f"{frame_width}X{frame_height}"
+                    results.append(result)
+                    print(f"可用频道数：{len(results)}")
         except:
             pass
-
         # 标记任务完成
         task_queue.task_done()
 
