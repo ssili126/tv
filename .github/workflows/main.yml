@@ -23,7 +23,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install selenium requests futures opencv-python
+        run: pip install selenium requests futures opencv-python eventlet
 
       - name: Install Chrome WebDriver
         run: |
@@ -43,8 +43,9 @@ jobs:
 
       - name: iptv_speed
         run: python ${{ github.workspace }}/IPTV_speed.py
-      #- name: download_speed
-      #  run: python ${{ github.workspace }}/download_speed.py
+        
+      - name: download_speed
+        run: python ${{ github.workspace }}/download_speed.py
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.0.0
