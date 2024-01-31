@@ -36,21 +36,16 @@ jobs:
           sudo ln -sf /usr/local/bin/chrome-headless-shell-linux64/chrome-headless-shell /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
 
-      - name: Run script
-        run: python ${{ github.workspace }}/IPTV.py
-      - name: iptv_sort
-        run: python ${{ github.workspace }}/iptv_sort.py
+      - name: Run itv
+        run: python ${{ github.workspace }}/itv.py
 
-      - name: iptv_speed
-        run: python ${{ github.workspace }}/IPTV_speed.py
+      - name: Run itvtest
+        run: python ${{ github.workspace }}/itvtest.py
         
-      - name: download_speed
-        run: python ${{ github.workspace }}/download_speed.py
-
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: iptv-all
+          name: itv
           path: ${{ github.workspace }}/
 
       - name: 提交更改
