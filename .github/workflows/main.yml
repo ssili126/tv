@@ -4,10 +4,7 @@ on:
   schedule:
     - name: daily_task
       description: Run task every day at 4:00 AM BEIJING
-      cron: "0 * * * *"
-  push:
-    branches:
-      - main
+      cron: "10 * * * *"
 
 jobs:
   build:
