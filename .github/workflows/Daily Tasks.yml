@@ -2,9 +2,7 @@ name: Daily Tasks
 
 on:
   schedule:
-    - name: daily_task
-      description: Run task every day at 4:00 AM BEIJING
-      cron: "20 * * * *"
+    - cron: '25 * * * *'
 
 jobs:
   build:
