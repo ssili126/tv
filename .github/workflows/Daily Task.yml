@@ -2,7 +2,7 @@ name: Daily Task
 
 on:
   schedule:
-    - cron: '50 * * * *'
+    - cron: '0 20 * * *'
 
 jobs:
   build:
