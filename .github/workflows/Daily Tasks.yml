@@ -1,0 +1,54 @@
+name: itvlist
+
+on:
+  schedule:
+    - name: daily_task
+      description: Run task every day at 4:00 AM BEIJING
+      cron: "15 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install selenium requests futures opencv-python eventlet
+
+      - name: Install Chrome WebDriver
+        run: |
+          LATEST_CHROMEDRIVER_VERSION=120.0.6099.109
+          curl -sS -o chromedriver_linux64.zip "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chrome-headless-shell-linux64.zip"
+          sudo unzip chromedriver_linux64.zip -d /usr/local/bin
+          rm chromedriver_linux64.zip
+      - name: Set chromedriver path
+        run: |
+          sudo ln -sf /usr/local/bin/chrome-headless-shell-linux64/chrome-headless-shell /usr/local/bin/chromedriver
+          sudo chmod +x /usr/local/bin/chromedriver
+      - name: Run itv
+        run: python ${{ github.workspace }}/itv.py
+
+      - name: Run itvtest
+        run: python ${{ github.workspace }}/itvtest.py
+        
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          name: itv
+          path: ${{ github.workspace }}/
+
+      - name: 提交更改
+        run: |
+          git config --local user.email "ssili@126.com"
+          git config --local user.name "ssili126"
+          git add .
+          git commit *.txt -m "Add generated file"
+          #git pull --rebase
+          git push -f
