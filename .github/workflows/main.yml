@@ -1,11 +1,11 @@
-name: IPTV All
+name: itvlist
 
 on:
   push:
     schedule:
       - name: daily_task
         description: Run task every day at 4:00 PM
-        cron: "0 16 * * *"
+        cron: '0 16 * * *'
     branches:
       - main
 
