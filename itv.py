@@ -208,3 +208,5 @@ with open("itv.txt", 'w', encoding='utf-8') as file:
     for result in results:
         file.write(result + "\n")
         print(result)
+        
+time.sleep(10)
