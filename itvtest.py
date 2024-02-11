@@ -20,6 +20,7 @@ with open("itv.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
     for line in lines:
         line = line.strip()
+        print(line)
         if line:
             channel_name, channel_url = line.split(',')
             channels.append((channel_name, channel_url))
