@@ -33,8 +33,8 @@ jobs:
           sudo ln -sf /usr/local/bin/chrome-headless-shell-linux64/chrome-headless-shell /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
 
-      - name: Run itv
-        run: python ${{ github.workspace }}/itv.py
+      #- name: Run itv
+        #run: python ${{ github.workspace }}/itv.py
 
       - name: Run itvtest
         run: python ${{ github.workspace }}/itvtest.py
