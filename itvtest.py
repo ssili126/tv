@@ -96,7 +96,7 @@ def channel_key(channel_name):
 # 对频道进行排序
 results.sort(key=lambda x: (x[0], -float(x[2].split()[0])))
 results.sort(key=lambda x: channel_key(x[0]))
-
+now_today = datetime.date.today()
 # 将结果写入文件
 with open("itv_results.txt", 'w', encoding='utf-8') as file:
     for result in results:
