@@ -158,7 +158,7 @@ for url in urls:
                         else:
                             urld = f"{url_x}{urlx}"
 
-                        if name and urlx:
+                        if name and urld:
                             # 删除特定文字
                             name = name.replace("cctv", "CCTV")
                             name = name.replace("中央", "CCTV")
@@ -200,7 +200,8 @@ for url in urls:
                             name = name.replace("CCTV5+体育赛视", "CCTV5+")
                             name = name.replace("CCTV5+体育赛事", "CCTV5+")
                             name = name.replace("CCTV5+体育", "CCTV5+")
-                            results.append(f"{name},{urld}")
+                            if 'udp' not in urld or 'rtp' not in urld:
+                                results.append(f"{name},{urld}")
             except:
                 continue
         except:
