@@ -73,8 +73,10 @@ def worker():
 # 创建多个工作线程
 num_threads = 10
 for _ in range(num_threads):
+    event = threading.Event()
     t = threading.Thread(target=worker, daemon=True)  # 将工作线程设置为守护线程
     t.start()
+    event.set()
 
 # 添加下载任务到队列
 for channel in channels:
