@@ -67,7 +67,7 @@ def worker():
 
         # 标记任务完成
         task_queue.task_done()
-        if numberx >= 20:
+        if numberx >= 10:
             break
 
 
