@@ -8,7 +8,7 @@ import eventlet
 eventlet.monkey_patch()
 
 # 线程安全的队列，用于存储下载任务
-#task_queue = Queue()
+task_queue = Queue()
 
 # 线程安全的列表，用于存储结果
 results = []
@@ -82,8 +82,8 @@ for _ in range(num_threads):
     #event.set()
 
 # 添加下载任务到队列
-#for channel in channels:
-    #task_queue.put(channel)
+for channel in channels:
+    task_queue.put(channel)
 
 # 等待所有任务完成
 #task_queue.join()
