@@ -67,8 +67,6 @@ def worker():
 
         # 标记任务完成
         task_queue.task_done()
-        if numberx >= 10:
-            break
 
 
 # 创建多个工作线程
