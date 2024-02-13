@@ -20,13 +20,12 @@ with open("itv.txt", 'r', encoding='utf-8') as file:
     lines = file.readlines()
     for line in lines:
         line = line.strip()
-        print(line)
         if line:
             channel_name, channel_url = line.split(',')
             channels.append((channel_name, channel_url))
 
 # 定义工作线程函数
-def worker(event,count):
+def worker():
     while True:
         # 从队列中获取一个任务
         channel_name, channel_url = task_queue.get()
@@ -67,17 +66,16 @@ def worker(event,count):
             print(f"可用频道：{len(results)} 个 , 不可用频道：{len(error_channels)} 个 , 总频道：{len(channels)} 个 ,总进度：{numberx:.2f} %。")
 
         # 标记任务完成
-        #task_queue.task_done()
-        if (len(results) + len(error_channels)) >=count:
-            event.set()#完成所有工作
+        task_queue.task_done()
+        if numberx >= 20:
             break
 
 
 # 创建多个工作线程
 num_threads = 10
 for _ in range(num_threads):
-    event = threading.Event()
-    t = threading.Thread(target=worker, args=(event,len(channels)))  # 将工作线程设置为守护线程
+    t = threading.Thread(target=worker, daemon=True) 
+    #t = threading.Thread(target=worker, args=(event,len(channels)))  # 将工作线程设置为守护线程
     t.start()
     #event.set()
 
@@ -86,7 +84,7 @@ for channel in channels:
     task_queue.put(channel)
 
 # 等待所有任务完成
-#task_queue.join()
+task_queue.join()
 
 
 def channel_key(channel_name):
