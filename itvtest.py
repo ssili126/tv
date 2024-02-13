@@ -74,7 +74,7 @@ def worker():
 num_threads = 10
 for _ in range(num_threads):
     event = threading.Event()
-    t = threading.Thread(target=worker, daemon=True)  # 将工作线程设置为守护线程
+    t = threading.Thread(target=worker, daemon=True, args=(event,))  # 将工作线程设置为守护线程
     t.start()
     event.set()
 
