@@ -139,3 +139,29 @@ with open("qita.m3u", 'w', encoding='utf-8') as file:
                 channel_counters[channel_name] = 1
     
     file.write(f"#EXTINF:-1 group-title=\"{now_today}更新\"\n")
+
+
+# 合并文件内容
+file_contents = []
+file_paths = ["cctv.txt", "weishi.txt", "qita.txt"]  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    with open(file_path, 'r', encoding="utf-8") as file:
+        content = file.read()
+        file_contents.append(content)
+
+# 写入合并后的文件
+with open("itvlist.txt", "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
+    
+# 合并文件内容
+file_contents = []
+file_paths = ["cctv.m3u", "weishi.m3u", "qita.m3u"]  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    with open(file_path, 'r', encoding="utf-8") as file:
+        content = file.read()
+        file_contents.append(content)
+
+# 写入合并后的文件
+with open("itvlist.m3u", "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
+    
