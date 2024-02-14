@@ -117,3 +117,20 @@ with open("cctv.txt", 'w', encoding='utf-8') as file:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
 
+with open("cctv.m3u", 'w', encoding='utf-8') as file:
+    channel_counters = {}
+    file.write('#EXTM3U\n')
+    for result in results:
+        channel_name, channel_url, speed = result
+        if 'CCTV' in channel_name:
+            if channel_name in channel_counters:
+                if channel_counters[channel_name] >= result_counter:
+                    continue
+                else:
+                    file.write(f"#EXTINF:-1 group-title=\"央视频道\",{channel_name}\n")
+                    file.write(f"{channel_url}\n")
+                    channel_counters[channel_name] += 1
+            else:
+                file.write(f"#EXTINF:-1 group-title=\"央视频道\",{channel_name}\n")
+                file.write(f"{channel_url}\n")
+                channel_counters[channel_name] = 1
