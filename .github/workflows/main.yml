@@ -20,7 +20,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install selenium requests futures opencv-python eventlet
+        run: pip install selenium requests futures eventlet
 
       - name: Install Chrome WebDriver
         run: |
@@ -36,14 +36,24 @@ jobs:
       - name: Run itv
         run: python ${{ github.workspace }}/itv.py
 
-      - name: Run itvtest
-        run: python ${{ github.workspace }}/itvtest.py
+      #- name: Run itvtest
+        #run: python ${{ github.workspace }}/itvtest.py
+      
+      - name: Run cctv
+        run: python ${{ github.workspace }}/cctv.py
         
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.0.0
-        with:
-          name: itv
-          path: ${{ github.workspace }}/
+      - name: Run weishi
+        run: python ${{ github.workspace }}/weishi.py
+        
+      - name: Run qita
+        run: python ${{ github.workspace }}/qita.py
+        
+
+      #- name: Upload a Build Artifact
+        #uses: actions/upload-artifact@v4.0.0
+        #with:
+          #name: itv
+          #path: ${{ github.workspace }}/
 
       - name: 提交更改
         run: |
