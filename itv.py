@@ -162,6 +162,7 @@ for url in urls:
                             # 删除特定文字
                             name = name.replace("cctv", "CCTV")
                             name = name.replace("中央", "CCTV")
+                            name = name.replace("央视", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("超高", "")
                             name = name.replace("HD", "")
