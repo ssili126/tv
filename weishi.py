@@ -118,7 +118,7 @@ with open("weishi.txt", 'w', encoding='utf-8') as file:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
 
-with open("itvlist.m3u", 'w', encoding='utf-8') as file:
+with open("weishi.m3u", 'w', encoding='utf-8') as file:
     channel_counters = {}
     #file.write('卫视频道,#genre#\n')
     for result in results:
