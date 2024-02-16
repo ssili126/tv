@@ -211,7 +211,7 @@ for url in urls:
         except:
             continue
 
-results.sort(key=lambda x: (x[0]))
+results.sort()
 results = set(results)  # 去重得到唯一的URL列表
 
 with open("itv.txt", 'w', encoding='utf-8') as file:
