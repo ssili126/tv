@@ -110,7 +110,7 @@ with open("itv_speed.txt", 'w', encoding='utf-8') as file:
         file.write(f"{channel_name},{channel_url}\n")
 
 
-result_counter = 8  # 每个频道需要的个数
+result_counter = 3  # 每个频道需要的个数
 
 with open("itvlist.txt", 'w', encoding='utf-8') as file:
     channel_counters = {}
