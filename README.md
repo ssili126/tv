@@ -24,7 +24,7 @@
       2.1 电脑安装chrome，下载对应版本的chromedriver.exe
       2.2 下载itv.py cctv.py weishi.py qita.py
       2.3 pip install selenium requests futures eventlet
-      2.4 依次运行itv.py cctv.py weishi.pu qita.py
+      2.4 依次运行itv.py cctv.py weishi.py qita.py
       2.5 运行完成后在当前目录下生成电视直播文件itvlist.txt。
       
   
