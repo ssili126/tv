@@ -13,12 +13,14 @@
 2.想自己获取电视直播地址的可采用以下方法：
 
   windows电脑：
+  
       1.1 电脑安装最新的chrome，同时执行文件目录下要有对应版本的chromedriver.exe，
       1.2 下载windows目录下的itv.exe及itvtest.exe,
       1.3 首先运行itv.exe，完成后再运行itvtest.exe，
       1.4 运行完成后在当前目录下生成电视直播文件itvlist.txt。
   
   有安装python的电脑：
+  
       2.1 电脑安装chrome，下载对应版本的chromedriver.exe
       2.2 下载itv.py cctv.py weishi.pu qita.py
       2.3 pip install selenium requests futures eventlet
