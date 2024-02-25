@@ -1,11 +1,17 @@
 # 自动获取酒店源 #
+
 使用方法：
+
 1.电视盒子
+
   在看电视直播软件中直接输入以下地址即可：
+  
       https://ghproxy.net/https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt
+      
       或https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt
   
 2.想自己获取电视直播地址的可采用以下方法：
+
   windows电脑：
       电脑安装最新的chrome，同时执行文件目录下要有对应版本的chromedriver.exe，
       下载windows目录下的itv.exe及itvtest.exe,
