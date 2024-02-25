@@ -2,14 +2,22 @@
 使用方法：
 1.电视盒子
   在看电视直播软件中直接输入以下地址即可：
-  
+      https://ghproxy.net/https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt
+      或https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt
   
 2.想自己获取电视直播地址的可采用以下方法：
-  windows电脑：电脑安装最新的chrome，同时执行文件目录下要有对应版本的chromedriver.exe即可运行，下载windows目录下的itv.exe及itvtest.exe,首先运行itv.exe，完成后再运行itvtest.exe，运行完成后在当前目录下生成电视直播文件itvlist.txt。
+  windows电脑：
+      电脑安装最新的chrome，同时执行文件目录下要有对应版本的chromedriver.exe，
+      下载windows目录下的itv.exe及itvtest.exe,
+      首先运行itv.exe，完成后再运行itvtest.exe，
+      运行完成后在当前目录下生成电视直播文件itvlist.txt。
   
   有安装python的电脑：
       电脑安装chrome，下载对应版本的chromedriver.exe
       下载itv.py cctv.py weishi.pu qita.py
+      pip install selenium requests futures eventlet
+      依次运行itv.py cctv.py weishi.pu qita.py
+      运行完成后在当前目录下生成电视直播文件itvlist.txt。
       
   
 2024.02.17更新，增加时间标签；因频道太多，cctv、卫视及其它频道均修改为单独的文件运行；修改为每四小时运行，更新更及时。
