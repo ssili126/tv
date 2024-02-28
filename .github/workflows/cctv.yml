@@ -1,4 +1,4 @@
-name: itvlist
+name: cctv
 
 on:
   schedule:
