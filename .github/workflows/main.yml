@@ -2,7 +2,7 @@ name: itvlist
 
 on:
   schedule:
-    - cron: '0 2,10,18 * * *'
+    - cron: '0 2,6,10,14,18,20 * * *'
 
 jobs:
   build:
@@ -22,6 +22,9 @@ jobs:
 
       - name: Run itv
         run: python ${{ github.workspace }}/itv.py
+        
+      - name: Run itv_all
+        run: python ${{ github.workspace }}/itv_all.py
 
       - name: Run cctv
         run: python ${{ github.workspace }}/cctv.py
@@ -34,8 +37,8 @@ jobs:
         
       - name: 提交更改
         run: |
-          git config --local user.email "ssili@126.com"
-          git config --local user.name "ssili126"
+          git config --local user.email "fwu@126.com"
+          git config --local user.name "zzmaze"
           git add .
           git commit *.txt -m "Add generated file"
           git commit *.m3u -m "Add generated file"
