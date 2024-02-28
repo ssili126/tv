@@ -213,7 +213,7 @@ for url in urls:
                 continue
 
 
-results = set(results)   # 去重得到唯一的URL列表
+#results = set(results)   # 去重得到唯一的URL列表
 results = sorted(results)
 with open("itv.txt", 'w', encoding='utf-8') as file:
     for result in results:
