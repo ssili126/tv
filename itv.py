@@ -211,7 +211,8 @@ for url in urls:
                     continue
             except:
                 continue
-
+    except:
+        continue
 
 results = set(results)   # 去重得到唯一的URL列表
 results = sorted(results)
