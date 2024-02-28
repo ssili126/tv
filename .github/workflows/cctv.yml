@@ -26,8 +26,8 @@ jobs:
       - name: Run itv
         run: python ${{ github.workspace }}/itv.py
 
-      #- name: Run itvtest
-        #run: python ${{ github.workspace }}/itvtest.py
+      - name: Run itvtest
+        run: python ${{ github.workspace }}/itvtest.py
 
       #- name: Run cctv
         #run: python ${{ github.workspace }}/cctv.py
