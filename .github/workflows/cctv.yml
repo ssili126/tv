@@ -29,8 +29,8 @@ jobs:
       #- name: Run cctv
         #run: python ${{ github.workspace }}/cctv.py
         
-      #- name: Run weishi
-        #run: python ${{ github.workspace }}/weishi.py
+      - name: Run weishi
+        run: python ${{ github.workspace }}/weishi.py
         
       - name: Run qita
         run: python ${{ github.workspace }}/qita.py
