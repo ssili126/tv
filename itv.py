@@ -74,7 +74,7 @@ def is_url_accessible(url):
 results = []
 
 for url in urls:
-    try:
+    
         # 创建一个Chrome WebDriver实例
         chrome_options = Options()
         chrome_options.add_argument('--headless')
@@ -211,8 +211,6 @@ for url in urls:
                     continue
             except:
                 continue
-    except:
-        continue
 
 
 results = set(results)   # 去重得到唯一的URL列表
