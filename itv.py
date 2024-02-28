@@ -74,7 +74,7 @@ def is_url_accessible(url):
 results = []
 
 for url in urls:
-    
+    try:
         # 创建一个Chrome WebDriver实例
         chrome_options = Options()
         chrome_options.add_argument('--headless')
@@ -83,7 +83,7 @@ for url in urls:
     
         driver = webdriver.Chrome(options=chrome_options)
         # 使用WebDriver访问网页
-        driver.get(url,timeout=10)  # 将网址替换为你要访问的网页地址
+        driver.get(url)  # 将网址替换为你要访问的网页地址
         time.sleep(10)
         # 获取网页内容
         page_content = driver.page_source
