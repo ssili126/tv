@@ -1,8 +1,8 @@
 name: itvtest
 
 on:
-  schedule:
-    - cron: '0 21 * * *'
+  #schedule:
+    #- cron: '0 21 * * *'
   #push:
     #branches:
       #- main
