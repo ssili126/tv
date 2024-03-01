@@ -1,8 +1,8 @@
 name: itvlist
 
 on:
-  #schedule:
-    #- cron: '0 18 * * *'
+  schedule:
+    - cron: '0 18 * * *'
 
 jobs:
   build:
@@ -20,17 +20,17 @@ jobs:
       - name: Install dependencies
         run: pip install selenium requests futures eventlet
 
-      - name: Run itv
-        run: python ${{ github.workspace }}/itv.py
+      - name: Run itv_all
+        run: python ${{ github.workspace }}/itv_all.py
 
-      - name: Run cctv
-        run: python ${{ github.workspace }}/cctv.py
+      #- name: Run cctv
+        #run: python ${{ github.workspace }}/cctv.py
         
-      - name: Run weishi
-        run: python ${{ github.workspace }}/weishi.py
+      #- name: Run weishi
+        #run: python ${{ github.workspace }}/weishi.py
         
-      - name: Run qita
-        run: python ${{ github.workspace }}/qita.py
+      #- name: Run qita
+        #run: python ${{ github.workspace }}/qita.py
         
       - name: 提交更改
         run: |
