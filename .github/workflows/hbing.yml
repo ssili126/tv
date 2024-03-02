@@ -1,0 +1,48 @@
+name: 测速提交  # 工作流的名称
+
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tv/itv.txt'
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install selenium requests futures eventlet
+
+      - name: Run scripts
+        run: |
+          nohup python ${{ github.workspace }}/py/cctv.py &
+          nohup python ${{ github.workspace }}/py/weishi.py &
+          nohup python ${{ github.workspace }}/py/qita.py &
+          wait
+      
+      - name: Run hebing
+        run: python ${{ github.workspace }}/py/hebing.py
+      
+      - name: 提交更改
+        run: |
+          git config --local user.email "csszue@gmail.com"  # 设置 Git 用户邮箱
+          git config --local user.name "MemoryCollection"  # 设置 Git 用户名
+          cp tv/itvlist.txt ./  # 将 tv/itvlist.txt 文件复制到根目录
+          git add tv/*  # 添加 tv/ 目录下的所有文件
+          git add itvlist.txt  # 添加根目录下的 itvlist.txt 文件
+
+          git commit -m "$(TZ=Asia/Shanghai date +'%Y-%m-%d %H:%M:%S') ：更新直播源"
+          #git pull --rebase
+          git push -f
