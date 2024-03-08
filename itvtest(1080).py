@@ -5,8 +5,6 @@ import datetime
 import threading
 from queue import Queue
 import requests
-import ffmpeg
-import cv2
 import eventlet
 eventlet.monkey_patch()
 
@@ -40,37 +38,34 @@ def worker():
                 ts_lists = [line.split('/')[-1] for line in lines if line.startswith('#') == False]  # 获取m3u8文件下视频流后缀
 
                 file_size = 0
-                # 多获取的视频数据进行20秒钟限制
-                with eventlet.Timeout(20, False):
-                    start_time = time.time()
+                start_time = time.time()
+                # 多获取的视频数据进行12秒钟限制
+                with eventlet.Timeout(12, False):
                     for i in range(len(ts_lists)):
                         ts_url = channel_url_t + ts_lists[i]  # 拼接单个视频片段下载链接
-                        #print(ts_url)
                         response = requests.get(ts_url, stream=True, timeout=1)
                         for chunk in response.iter_content(chunk_size=1024):
                             if chunk:
                                 file_size += len(chunk)
                         response.close()
-                    end_time = time.time()
-                    response_time = end_time - start_time
+                end_time = time.time()
+                response_time = end_time - start_time
+                if response_time >=12:
+                    file_size = 0
                 download_speed = file_size / response_time / 1024
                 normalized_speed =download_speed / 1024  # 将速率从kB/s转换为MB/s
                 ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
                 if normalized_speed >= 1:
-                    cap = cv2.VideoCapture(ts_url)
-                    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-                    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-                    cap.release()
-                    if height >= 1080:
+                    if file_size >= 12000000:
                         result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s"
                         results.append(result)
                         numberx = (len(results) + len(error_channels)) / len(channels) * 100
-                        print(f"可用频道：{len(results)} , 网速：{normalized_speed:.3f} MB/s , 分辨率：{width}X{height}, 不可用频道：{len(error_channels)} 个 , 总频道：{len(channels)} 个 ,总进度：{numberx:.2f} %。")
+                        print(f"可用频道：{len(results)} , 网速：{normalized_speed:.3f} MB/s , 不可用频道：{len(error_channels)} 个 , 总频道：{len(channels)} 个 ,总进度：{numberx:.2f} %。")
                     else:
                         error_channel = channel_name, channel_url
                         error_channels.append(error_channel)
                         numberx = (len(results) + len(error_channels)) / len(channels) * 100
-                        print(f"可用频道：{len(results)} 个 , 不可用频道：{len(error_channels)} , 网速：{normalized_speed:.3f} MB/s , 分辨率：{width}X{height} , 总频道：{len(channels)} 个 ,总进度：{numberx:.2f} %。")
+                        print(f"可用频道：{len(results)} 个 , 不可用频道：{len(error_channels)} , 网速：{normalized_speed:.3f} MB/s , 总频道：{len(channels)} 个 ,总进度：{numberx:.2f} %。")
                 else:
                     error_channel = channel_name, channel_url
                     error_channels.append(error_channel)
