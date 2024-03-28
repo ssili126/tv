@@ -283,17 +283,6 @@ def channel_key(channel_name):
 results.sort(key=lambda x: (x[0], -float(x[2].split()[0])))
 results.sort(key=lambda x: channel_key(x[0]))
 
-# 将结果写入文件
-with open("itv_results.txt", 'w', encoding='utf-8') as file:
-    for result in results:
-        channel_name, channel_url, speed = result
-        file.write(f"{channel_name},{channel_url},{speed}\n")
-
-with open("itv_speed.txt", 'w', encoding='utf-8') as file:
-    for result in results:
-        channel_name, channel_url, speed = result
-        file.write(f"{channel_name},{channel_url}\n")
-
 
 result_counter = 8  # 每个频道需要的个数
 
