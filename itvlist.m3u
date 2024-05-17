@@ -721,21 +721,3 @@ http://42.5.185.253:9901/tsfile/live/1019_1.m3u8?key=txiptv&playlive=1&authid=0
 http://123.189.36.143:9901/tsfile/live/1019_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 group-title="其他频道",都市
 http://171.8.138.76:85/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",重庆
-http://42.5.185.253:9901/tsfile/live/1127_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",重庆
-http://123.189.36.143:9901/tsfile/live/1127_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",金鹰卡通
-http://118.81.82.217:9999/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",金鹰卡通
-http://42.5.185.253:9901/tsfile/live/1088_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",金鹰卡通
-http://123.189.36.143:9901/tsfile/live/1088_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",金鹰纪实
-http://221.234.25.122:9999/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",风云足球
-http://42.5.185.253:9901/tsfile/live/1122_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",风云足球
-http://123.189.36.143:9901/tsfile/live/1122_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="其他频道",黑龙江
-http://42.5.185.253:9901/tsfile/live/1145_1.m3u8?key=txiptv&playlive=1&authid=0
