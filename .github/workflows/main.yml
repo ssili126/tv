@@ -22,7 +22,8 @@ jobs:
           python-version: '3.12.3'
 
       - name: Install dependencies
-        run: pip install selenium==4.19.0 requests==2.31.0 futures==3.0.5 eventlet==0.36.1
+        #run: pip install selenium==4.19.0 requests==2.31.0 futures==3.0.5 eventlet==0.36.1
+        run: pip install selenium requests futures eventlet
 
       - name: Run itv_all
         run: python ${{ github.workspace }}/itv_all.py
