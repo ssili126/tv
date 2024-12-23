@@ -28,7 +28,7 @@
 
 3.在openwrt或群辉的docker运行：
 
-        1.安装：docker pull liuxipo/itvall:latest
+        1.安装：docker pull liuxipo/itvall:amd64  或者 docker pull liuxipo/itvall:arm64
         2.运行：docker run -v /www/itvall:/app itvall
         3.访问：http://本地ip/itvall/itvlist.txt
   
