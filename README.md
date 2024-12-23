@@ -16,18 +16,15 @@
 
   windows电脑：
   
-      1.1 电脑安装最新的chrome，同时执行文件目录下要有对应版本的chromedriver.exe，
-      1.2 下载windows目录下的itv.exe及itvtest.exe,
-      1.3 首先运行itv.exe，完成后再运行itvtest.exe，
-      1.4 运行完成后在当前目录下生成电视直播文件itvlist.txt。
+      1.1 下载当前目录下的itvall.exe,
+      1.2 运行完成后在当前目录下生成电视直播文件itvlist.txt。
   
   有安装python的电脑：
   
-      2.1 电脑安装chrome，下载对应版本的chromedriver
-      2.2 下载itv.py cctv.py weishi.py qita.py
-      2.3 pip install selenium requests futures eventlet opencv-python
-      2.4 依次运行itv.py cctv.py weishi.py qita.py
-      2.5 运行完成后在当前目录下生成电视直播文件itvlist.txt。
+      2.1 下载new.py
+      2.2 pip install requests futures eventlet
+      2.3 运行new.py
+      2.4 运行完成后在当前目录下生成电视直播文件itvlist.txt。
 
 3.在openwrt或群辉的docker运行：
 
