@@ -1,5 +1,6 @@
 # 自动获取酒店源  组播源 #
 ## 不再依赖chrome浏览器及fofa等网站，windows系统可直接运行itvall.exe文件，大概45分钟。 ##
+## 增加ZHGXTV的相关。 ##
 ### docker打包好的镜像可以在这里下载：### 
 链接: https://pan.baidu.com/s/1NFv2K-uES0imKxG4XNh4fQ 提取码: 3s32
 
