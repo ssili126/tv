@@ -1,6 +1,8 @@
 import asyncio
+import logging
 import time
 from urllib.parse import urlparse
+import aiofiles
 import aiohttp
 import re
 import os
@@ -12,6 +14,10 @@ min_network_segment = 1
 max_network_segment = 256
 # 每个频道需要的个数
 result_counter = 8
+# 控制异步并发的信号量
+semaphore = asyncio.Semaphore(200)
+# 请求等待时间, 并发量越高时间要越长
+time_out = 3
 # 源URL
 src_urls = [
     "http://1.196.55.1:9901",
@@ -160,13 +166,17 @@ src_urls = [
     "http://61.173.144.1:9901"
 ]
 
-src_urls_test = ['http://1.196.55.1:9901', 'http://113.220.235.235:9999']
+src_urls_test = src_urls[31:36]
+
+
+# 配置日志
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 
 
 def modify_urls(src_url):
     # 正则替换IP第四位
     modified_urls = []
-    pattern = r'\.(\d)\:'
+    pattern = r'\.(\d+)\:'
     request_param = "/iptv/live/1000.json?key=txiptv"
     for i in range(min_network_segment, max_network_segment):
         base_url = re.sub(pattern, f".{i}:", src_url)
@@ -177,26 +187,37 @@ def modify_urls(src_url):
 
 async def check_url_code(url):
     # 校验url是否可用
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, timeout=0.5) as resp:
-                if resp.status == 200:
-                    return url
-                else:
-                    return None
-    except Exception:
-        return None
+    async with semaphore:  # 限制并发数
+        try:
+            async with aiohttp.ClientSession() as session:
+                logging.info(f"开始校验: {url}")
+                async with session.get(url, timeout=time_out) as resp:
+                    if resp.status == 200:
+                        return url
+                    else:
+                        return None
+        except Exception:
+            return None
 
 
 async def get_valid_urls() -> list:
     # 获取所有有效的url
-    valid_urls = []
+
+    tasks = []  # 用来存储所有异步任务
+
     for src_url in src_urls:
         urls = modify_urls(src_url)
         for url in urls:
-            code = await check_url_code(url)
-            if code is not None:
-                valid_urls.append(url)
+            # 启动每个校验任务
+            tasks.append(check_url_code(url))
+
+    # 等待所有校验任务完成，并获取结果
+    results = await asyncio.gather(*tasks)
+
+    # 筛选出有效的url
+    valid_urls = [url for url in results if url is not None]
+
+    logging.info(f"共找到 {len(valid_urls)} 个有效的URL")
     return valid_urls
 
 
@@ -324,8 +345,10 @@ async def download_ts(m3u8_list: List[Tuple[str, str, str]]) -> Tuple[
                     response_time = (end_time - start_time)
 
                     if content:
-                        with open(ts_lists_0, 'ab') as f:
-                            f.write(content)
+                        # 使用aiofiles异步写入文件
+                        async with aiofiles.open(ts_lists_0, 'ab') as f:
+                            await f.write(content)
+
                         file_size = len(content)
                         download_speed = file_size / response_time / 1024  # kB/s
                         normalized_speed = min(max(download_speed / 1024, 0.001), 100)  # 转换为MB/s并限制在1~100之间
@@ -335,18 +358,21 @@ async def download_ts(m3u8_list: List[Tuple[str, str, str]]) -> Tuple[
                         result = (name, url, f"{normalized_speed:.3f} MB/s")
                         results.append(result)
                         numberx = (len(results) + len(error_channels)) / len(m3u8_list) * 100
-                        print(
+                        logging.info(
                             f"可用频道：{len(results)} 个 , 不可用频道：{len(error_channels)} 个 , 总频道：{len(m3u8_list)} 个 , 总进度：{numberx:.2f} %。")
             except Exception as e:
                 error_channel = (name, url)
                 error_channels.append(error_channel)
                 numberx = (len(results) + len(error_channels)) / len(m3u8_list) * 100
-                print(
+                logging.info(
                     f"可用频道：{len(results)} 个 , 不可用频道：{len(error_channels)} 个 , 总频道：{len(m3u8_list)} 个 , 总进度：{numberx:.2f} %。")
 
         # 使用 asyncio.gather 执行所有下载任务
-        tasks = [download_channel(name, url, base_url) for name, url, base_url in m3u8_list]
-        await asyncio.gather(*tasks)
+        if m3u8_list != None:
+            tasks = [download_channel(name, url, base_url) for name, url, base_url in m3u8_list]
+            await asyncio.gather(*tasks)
+        else:
+            pass
 
     return results, error_channels
 
@@ -468,12 +494,15 @@ def write_itv_m3u(results):
 
 
 async def start():
+    start_time = time.time()
     m3u8_list = await get_iptv_name_m3u8s()
     results, error_channels = await download_ts(m3u8_list)
     write_itv_txt(results)
     write_itv_m3u(results)
-    print(f"成功频道: {len(results)}个.", )
-    print(f"错误频道: {len(error_channels)}个.")
+    logging.info(f"成功频道: {len(results)}个.", )
+    logging.info(f"错误频道: {len(error_channels)}个.")
+    end_time = time.time()
+    logging.info(f"耗时: {end_time - start_time}s.")
 
 
 if __name__ == '__main__':
