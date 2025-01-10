@@ -306,11 +306,11 @@ async def get_iptv_name_m3u8s() -> List[Tuple[str, str, str]]:
                             # 删除特定文字
                             replace_name(name)
                             m3u8_list.append((name, m3u9_url, base_url))
-                return m3u8_list
             except:
                 continue
         except:
             continue
+    return m3u8_list
 
 
 async def download_ts(m3u8_list: List[Tuple[str, str, str]]) -> Tuple[
