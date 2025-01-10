@@ -303,9 +303,8 @@ async def get_iptv_name_m3u8s() -> List[Tuple[str, str, str]]:
                             base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
                             m3u9_url = f"{base_url}{url_param}"
                         if name and url_param:
-                            # 删除特定文字
-                            replace_name(name)
-                            m3u8_list.append((name, m3u9_url, base_url))
+                            # 修改特定文字
+                            m3u8_list.append((replace_name(name), m3u9_url, base_url))
             except:
                 continue
         except:
