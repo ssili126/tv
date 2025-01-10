@@ -250,13 +250,15 @@ def replace_name(name: str) -> str:
 # 获取所有可用的电视名字和链接
 async def get_iptv_name_m3u8s() -> List[Tuple[str, str, str]]:
     """
+    遍历url，获取JSON并解析
+
     返回一个列表元组:
         1是tv名字,
         2是m3u8的url
     """
     m3u8_list = []
     urls = await get_valid_urls()
-    # 遍历url，获取JSON并解析
+
     for url in urls:
         try:
             async with aiohttp.ClientSession() as session:
@@ -293,6 +295,8 @@ async def get_iptv_name_m3u8s() -> List[Tuple[str, str, str]]:
 async def download_ts(m3u8_list: List[Tuple[str, str, str]]) -> Tuple[
     List[Tuple[str, str, str]], List[Tuple[str, str]]]:
     """
+    下载ts测试url是否可用
+
     返回两个列表:
         第一个是结果
         第二个是错误
@@ -300,7 +304,6 @@ async def download_ts(m3u8_list: List[Tuple[str, str, str]]) -> Tuple[
     results = []
     error_channels = []
 
-    # 复用一个 ClientSession
     async with aiohttp.ClientSession() as session:
         async def download_channel(name: str, url: str, base_url: str):
             try:
@@ -349,6 +352,7 @@ async def download_ts(m3u8_list: List[Tuple[str, str, str]]) -> Tuple[
 
 
 def results_sort(results) -> list:
+    # 频道进行排序
     def channel_key(channel_name):
         match = re.search(r'\d+', channel_name)
         if match:
@@ -356,13 +360,13 @@ def results_sort(results) -> list:
         else:
             return float('inf')  # 返回一个无穷大的数字作为关键字
 
-    # 对频道进行排序
     results.sort(key=lambda x: (x[0], -float(x[2].split()[0])))
     results.sort(key=lambda x: channel_key(x[0]))
     return results
 
 
 def write_itv_txt(results):
+    # 写出txt类型
     results_sort(results)
     with open("itvlist.txt", 'w', encoding='utf-8') as file:
         channel_counters = {}
@@ -409,7 +413,8 @@ def write_itv_txt(results):
                     channel_counters[channel_name] = 1
 
 
-def write_itv_m3u8(results):
+def write_itv_m3u(results):
+    # 写出m3u类型
     results_sort(results)
     with open("itvlist.m3u", 'w', encoding='utf-8') as file:
         channel_counters = {}
@@ -466,7 +471,7 @@ async def start():
     m3u8_list = await get_iptv_name_m3u8s()
     results, error_channels = await download_ts(m3u8_list)
     write_itv_txt(results)
-    write_itv_m3u8(results)
+    write_itv_m3u(results)
     print(f"成功频道: {len(results)}个.", )
     print(f"错误频道: {len(error_channels)}个.")
 
