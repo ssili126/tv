@@ -418,7 +418,7 @@ with open("itvlist.m3u", 'w', encoding='utf-8') as file:
     #file.write('苏州频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '苏州' in channel_name:
+        if '苏州新闻综合' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
