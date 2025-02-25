@@ -414,4 +414,20 @@ with open("itvlist.m3u", 'w', encoding='utf-8') as file:
                 file.write(f"#EXTINF:-1 group-title=\"卫视频道\",{channel_name}\n")
                 file.write(f"{channel_url}\n")
                 channel_counters[channel_name] = 1
+    channel_counters = {}
+    #file.write('苏州频道,#genre#\n')
+    for result in results:
+        channel_name, channel_url, speed = result
+        if '苏州' in channel_name:
+            if channel_name in channel_counters:
+                if channel_counters[channel_name] >= result_counter:
+                    continue
+                else:
+                    file.write(f"#EXTINF:-1 group-title=\"苏州频道\",{channel_name}\n")
+                    file.write(f"{channel_url}\n")
+                    channel_counters[channel_name] += 1
+            else:
+                file.write(f"#EXTINF:-1 group-title=\"苏州频道\",{channel_name}\n")
+                file.write(f"{channel_url}\n")
+                channel_counters[channel_name] = 1
    
