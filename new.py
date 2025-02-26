@@ -277,6 +277,7 @@ for url in valid_urls:
                         name = name.replace("CCTV5+体育赛视", "CCTV5+")
                         name = name.replace("CCTV5+体育赛事", "CCTV5+")
                         name = name.replace("CCTV5+体育", "CCTV5+")
+                        name = name.replace("苏州生活", "苏州生活咨讯")
                         results.append(f"{name},{urld}")
         except:
             continue
@@ -381,6 +382,20 @@ with open("itvlist.txt", 'w', encoding='utf-8') as file:
             else:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
+    channel_counters = {}
+    file.write('江苏频道,#genre#\n')
+    for result in results:
+        channel_name, channel_url, speed = result
+        if '苏州' in channel_name:
+            if channel_name in channel_counters:
+                if channel_counters[channel_name] >= result_counter:
+                    continue
+                else:
+                    file.write(f"{channel_name},{channel_url}\n")
+                    channel_counters[channel_name] += 1
+            else:
+                file.write(f"{channel_name},{channel_url}\n")
+                channel_counters[channel_name] = 1           
 with open("itvlist.m3u", 'w', encoding='utf-8') as file:
     channel_counters = {}
     file.write('#EXTM3U\n')
@@ -415,19 +430,19 @@ with open("itvlist.m3u", 'w', encoding='utf-8') as file:
                 file.write(f"{channel_url}\n")
                 channel_counters[channel_name] = 1
     channel_counters = {}
-    #file.write('苏州频道,#genre#\n')
+    #file.write('江苏频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '苏州新闻综合' in channel_name:
+        if '苏州' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
                 else:
-                    file.write(f"#EXTINF:-1 group-title=\"苏州频道\",{channel_name}\n")
+                    file.write(f"#EXTINF:-1 group-title=\"江苏频道\",{channel_name}\n")
                     file.write(f"{channel_url}\n")
                     channel_counters[channel_name] += 1
             else:
-                file.write(f"#EXTINF:-1 group-title=\"苏州频道\",{channel_name}\n")
+                file.write(f"#EXTINF:-1 group-title=\"江苏频道\",{channel_name}\n")
                 file.write(f"{channel_url}\n")
                 channel_counters[channel_name] = 1
    
