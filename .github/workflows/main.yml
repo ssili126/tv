@@ -30,6 +30,10 @@ jobs:
 
       - name: Run cctv
         run: python ${{ github.workspace }}/new.py
+
+      - name: Add Custom Channels
+        run: |
+          cat szdf.txt >> itvlist.txt  # 追加多个直播源
         
       #- name: Run weishi
         #run: python ${{ github.workspace }}/weishi.py
