@@ -33,10 +33,7 @@ jobs:
         
       #- name: Run weishi
         #run: python ${{ github.workspace }}/weishi.py
-        
-      #- name: Run qita
-        #run: python ${{ github.workspace }}/qita.py
-        
+           
       - name: 提交更改
         run: |
           git config --local user.email "ssili@126.com"
