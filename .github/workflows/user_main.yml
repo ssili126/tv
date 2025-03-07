@@ -26,14 +26,12 @@ jobs:
         run: pip install selenium requests futures eventlet aiohttp aiofiles
 
       #- name: Run 江苏电信组播.exe
-        #run: start "" "udpxy\江苏电信组播.exe"
+        #run: python ${{ github.workspace }}/江苏电信组播.exe
 
       - name: Add Custom Channels
         run: |
           cat szdf.txt >> itvlist.txt  # 追加多个直播源
         
-      #- name: Run weishi
-        #run: python ${{ github.workspace }}/weishi.py
            
       - name: 提交更改
         run: |
