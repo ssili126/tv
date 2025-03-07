@@ -25,11 +25,8 @@ jobs:
         #run: pip install selenium==4.19.0 requests==2.31.0 futures==3.0.5 eventlet==0.36.1
         run: pip install selenium requests futures eventlet aiohttp aiofiles
 
-      #- name: Run itv_all
-        #run: python ${{ github.workspace }}/itv_all.py
-
-      - name: Run cctv
-        run: python ${{ github.workspace }}/new.py
+      #- name: Run 江苏电信组播.exe
+        #run: start "" "udpxy\江苏电信组播.exe"
 
       - name: Add Custom Channels
         run: |
