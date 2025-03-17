@@ -3,20 +3,21 @@ name: Generate UDP Playlist
 on:
   schedule:
     - cron: '0 1 * * *'  # 每天 UTC 时间 01:00（北京时间 09:00）自动运行
-  workflow_dispatch:     # 允许手动触发
-
+    workflow_dispatch:
+    分支:
+      - main
 jobs:
-  generate:
-    runs-on: windows-latest  # 使用 Windows 环境运行 .exe 文件
+  run_script:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
 
       - name: Install dependencies
         run: pip install requests
