@@ -22,10 +22,10 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run 江苏电信组播源.exe
+      - name: Run 江苏电信组播.exe
         run: |
           cd udpxy
-          江苏电信组播源.exe
+          江苏电信组播.exe
 
 
       - name: Commit and push changes
