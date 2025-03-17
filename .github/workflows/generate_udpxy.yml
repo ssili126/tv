@@ -25,7 +25,7 @@ jobs:
       - name: Run 江苏电信组播源.exe
         run: |
           cd udpxy
-          电信组播源.exe
+          江苏电信组播源.exe
 
 
       - name: Commit and push changes
