@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run 电信组播源.exe
+      - name: Run 江苏电信组播源.exe
         run: |
           cd udpxy
           电信组播源.exe
