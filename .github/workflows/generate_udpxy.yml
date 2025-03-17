@@ -27,14 +27,11 @@ jobs:
           cd udpxy
           电信组播源.exe
 
-      - name: Generate final playlist
-        run: |
-          python generate_playlist.py
 
       - name: Commit and push changes
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add udplist.txt udplist.m3u mytvlist.m3u
+          git add udplist.txt udplist.m3u
           git commit -m "Update UDP and M3U playlists"
           git push
