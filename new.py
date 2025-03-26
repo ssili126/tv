@@ -797,7 +797,7 @@ async def main():
         x_urls.append(x_url)
     unique_urls = set(x_urls)
 
-    semaphore = asyncio.Semaphore(500)
+    semaphore = asyncio.Semaphore(300)
     async with aiohttp.ClientSession() as session:
         valid_urls = await check_urls(session, unique_urls, semaphore)
         all_results = []
