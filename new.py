@@ -954,7 +954,7 @@ async def main() -> None:
         print(f"{name}: {url} -> {speed:.2f} MB/s")
     # 4. 保存文件
     write_txt(measured)
-    write_txt(measured)
+    write_m3u8(measured)
 
 
 if __name__ == "__main__":
