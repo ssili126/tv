@@ -833,7 +833,10 @@ def channel_key(channel_name):
     else:
         return float('inf')
 
-def write_file(results: List[Tuple[str, str, float]]) -> None:
+def write_txt(results: List[Tuple[str, str, float]]) -> None:
+    """
+    保存数据为txt
+    """
     with open("itvlist.txt", 'w', encoding='utf-8') as file:
         channel_counters = {}
         file.write('央视频道,#genre#\n')
@@ -879,6 +882,61 @@ def write_file(results: List[Tuple[str, str, float]]) -> None:
                     channel_counters[channel_name] = 1
 
 
+def write_m3u8(results: List[Tuple[str, str, float]]) -> None:
+    """
+    保存数据为m3u8
+    """
+    with open("itvlist.m3u", 'w', encoding='utf-8') as file:
+        channel_counters = {}
+        file.write('#EXTM3U\n')
+        for result in results:
+            channel_name, channel_url, speed = result
+            if 'CCTV' in channel_name:
+                if channel_name in channel_counters:
+                    if channel_counters[channel_name] >= IPTV_SAVE_NUM:
+                        continue
+                    else:
+                        file.write(f"#EXTINF:-1 group-title=\"央视频道\",{channel_name}\n")
+                        file.write(f"{channel_url}\n")
+                        channel_counters[channel_name] += 1
+                else:
+                    file.write(f"#EXTINF:-1 group-title=\"央视频道\",{channel_name}\n")
+                    file.write(f"{channel_url}\n")
+                    channel_counters[channel_name] = 1
+        channel_counters = {}
+        # file.write('卫视频道,#genre#\n')
+        for result in results:
+            channel_name, channel_url, speed = result
+            if '卫视' in channel_name:
+                if channel_name in channel_counters:
+                    if channel_counters[channel_name] >= IPTV_SAVE_NUM:
+                        continue
+                    else:
+                        file.write(f"#EXTINF:-1 group-title=\"卫视频道\",{channel_name}\n")
+                        file.write(f"{channel_url}\n")
+                        channel_counters[channel_name] += 1
+                else:
+                    file.write(f"#EXTINF:-1 group-title=\"卫视频道\",{channel_name}\n")
+                    file.write(f"{channel_url}\n")
+                    channel_counters[channel_name] = 1
+        channel_counters = {}
+        # file.write('其他频道,#genre#\n')
+        for result in results:
+            channel_name, channel_url, speed = result
+            if 'CCTV' not in channel_name and '卫视' not in channel_name and '测试' not in channel_name:
+                if channel_name in channel_counters:
+                    if channel_counters[channel_name] >= IPTV_SAVE_NUM:
+                        continue
+                    else:
+                        file.write(f"#EXTINF:-1 group-title=\"其他频道\",{channel_name}\n")
+                        file.write(f"{channel_url}\n")
+                        channel_counters[channel_name] += 1
+                else:
+                    file.write(f"#EXTINF:-1 group-title=\"其他频道\",{channel_name}\n")
+                    file.write(f"{channel_url}\n")
+                    channel_counters[channel_name] = 1
+
+
 async def main() -> None:
     # 1. 探测 JSON 接口
     result = await check_urls(urls)
@@ -894,7 +952,9 @@ async def main() -> None:
     measured.sort(key=lambda x: channel_key(x[0]))
     for name, url, speed in measured:
         print(f"{name}: {url} -> {speed:.2f} MB/s")
-    write_file(measured)
+    # 4. 保存文件
+    write_txt(measured)
+    write_txt(measured)
 
 
 if __name__ == "__main__":
