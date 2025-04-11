@@ -730,58 +730,49 @@ async def fetch_json(session: aiohttp.ClientSession, url: str, sem: asyncio.Sema
 
 def rename(name: str) -> str | None:
     """替换频道名"""
-    if not name:
-        return None
+    name = name.replace("cctv", "CCTV")
+    name = name.replace("中央", "CCTV")
+    name = name.replace("央视", "CCTV")
+    name = name.replace("高清", "")
+    name = name.replace("超高", "")
+    name = name.replace("HD", "")
+    name = name.replace("标清", "")
+    name = name.replace("频道", "")
+    name = name.replace("-", "")
+    name = name.replace(" ", "")
+    name = name.replace("PLUS", "+")
+    name = name.replace("＋", "+")
+    name = name.replace("(", "")
+    name = name.replace(")", "")
     name = re.sub(r"CCTV(\d+)台", r"CCTV\1", name)
-    # 替换频道名对应表
-    alias_map = {
-        "cctv": "CCTV",
-        "中央": "CCTV",
-        "央视": "CCTV",
-        "＋": "+",
-        "plus": "+",
-        "PLUS": "+",
-        "高清": "",
-        "超高": "",
-        "HD": "",
-        "标清": "",
-        "频道": "",
-        "-": "",
-        " ": "",
-        "cctv1综合": "CCTV1",
-        "cctv2财经": "CCTV2",
-        "cctv3综艺": "CCTV3",
-        "cctv4国际": "CCTV4",
-        "cctv4中文国际": "CCTV4",
-        "cctv4欧洲": "CCTV4",
-        "cctv5体育": "CCTV5",
-        "cctv5+体育赛事": "CCTV5+",
-        "cctv5+体育赛视": "CCTV5+",
-        "cctv5+体育": "CCTV5+",
-        "cctv6电影": "CCTV6",
-        "cctv7军事": "CCTV7",
-        "cctv7军农": "CCTV7",
-        "cctv7农业": "CCTV7",
-        "cctv7国防军事": "CCTV7",
-        "cctv8电视剧": "CCTV8",
-        "cctv9记录": "CCTV9",
-        "cctv9纪录": "CCTV9",
-        "cctv10科教": "CCTV10",
-        "cctv11戏曲": "CCTV11",
-        "cctv12社会与法": "CCTV12",
-        "cctv13新闻": "CCTV13",
-        "cctv新闻": "CCTV13",
-        "cctv14少儿": "CCTV14",
-        "cctv15音乐": "CCTV15",
-        "cctv16奥林匹克": "CCTV16",
-        "cctv17农业农村": "CCTV17",
-        "cctv17农业": "CCTV17",
-    }
-
-    # 优先处理别名
-    for key, value in alias_map.items():
-        if key in name:
-            name.replace(key, value)
+    name = name.replace("CCTV1综合", "CCTV1")
+    name = name.replace("CCTV2财经", "CCTV2")
+    name = name.replace("CCTV3综艺", "CCTV3")
+    name = name.replace("CCTV4国际", "CCTV4")
+    name = name.replace("CCTV4中文国际", "CCTV4")
+    name = name.replace("CCTV4欧洲", "CCTV4")
+    name = name.replace("CCTV5体育", "CCTV5")
+    name = name.replace("CCTV6电影", "CCTV6")
+    name = name.replace("CCTV7军事", "CCTV7")
+    name = name.replace("CCTV7军农", "CCTV7")
+    name = name.replace("CCTV7农业", "CCTV7")
+    name = name.replace("CCTV7国防军事", "CCTV7")
+    name = name.replace("CCTV8电视剧", "CCTV8")
+    name = name.replace("CCTV9记录", "CCTV9")
+    name = name.replace("CCTV9纪录", "CCTV9")
+    name = name.replace("CCTV10科教", "CCTV10")
+    name = name.replace("CCTV11戏曲", "CCTV11")
+    name = name.replace("CCTV12社会与法", "CCTV12")
+    name = name.replace("CCTV13新闻", "CCTV13")
+    name = name.replace("CCTV新闻", "CCTV13")
+    name = name.replace("CCTV14少儿", "CCTV14")
+    name = name.replace("CCTV15音乐", "CCTV15")
+    name = name.replace("CCTV16奥林匹克", "CCTV16")
+    name = name.replace("CCTV17农业农村", "CCTV17")
+    name = name.replace("CCTV17农业", "CCTV17")
+    name = name.replace("CCTV5+体育赛视", "CCTV5+")
+    name = name.replace("CCTV5+体育赛事", "CCTV5+")
+    name = name.replace("CCTV5+体育", "CCTV5+")
     return name
 
 
