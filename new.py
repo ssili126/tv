@@ -781,9 +781,8 @@ def rename(name: str) -> str | None:
     # 优先处理别名
     for key, value in alias_map.items():
         if key in name:
-            return value
-    # 其他保留清理格式后的结果（首字母大写）
-    return name.upper()
+            name.replace(key, value)
+    return name
 
 
 async def measure_speed(session: aiohttp.ClientSession, name_url: Tuple[str, str], sem: asyncio.Semaphore) -> Tuple[str, str, float] | None:
