@@ -1,10 +1,7 @@
 # 自动获取酒店源  组播源 #
-## [AQinTrue](https://github.com/AQinTrue/AQinTrue)大神的提交一直不知道什么原因没有成功。参照大神的方法再一次修改了采用异步的方式优化网络请求，同时增加了异步线程。
-## 自己使用时一定注意根据自己的网络情况修改800，830，873行的线程及时间。
+## 代码复制自[AQinTrue](https://github.com/AQinTrue/AQinTrue)。
 ## 不再依赖chrome浏览器及fofa等网站，windows系统可直接运行itvall.exe文件，大概45分钟。 ##
-## 增加ZHGXTV的相关,ZHGXTV.exe可以在windows直接运行。 ##
-### docker打包好的镜像可以在这里下载：### 
-链接: https://pan.baidu.com/s/1NFv2K-uES0imKxG4XNh4fQ 提取码: 3s32
+### docker未重新打包。。。。。。
 
 使用方法：
 
