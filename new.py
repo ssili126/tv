@@ -666,7 +666,7 @@ def modify_urls(url: str) -> list[str]:
     ip_address = url[ip_start_index:ip_end_index]
     port = url[ip_end_index:]
     for i in range(1, 256):
-        modified_ip = f"{ip_address.rsplit('.',1)[0]}.{i}"
+        modified_ip = f"{ip_address.rsplit('.',1)[0]}。{i}"
         modified_url = f"{base_url}{modified_ip}{port}{IPTV_PATH}"
         modified_urls.append(modified_url)
     return modified_urls
@@ -723,6 +723,7 @@ async def fetch_json(session: aiohttp.ClientSession, url: str, sem: asyncio.Sema
         if not name or not rel:
             continue
         # 自动拼接相对路径到完整 URL
+        url = url.replace("/iptv/live/1000.json?key=txiptv", "")
         full_url = url + rel
         results.append((name, full_url))
     return results
@@ -744,7 +745,7 @@ def rename(name: str) -> str | None:
     name = name.replace("＋", "+")
     name = name.replace("(", "")
     name = name.replace(")", "")
-    name = re.sub(r"CCTV(\d+)台", r"CCTV\1", name)
+    name = re.sub(r"CCTV(\d+)台", r"CCTV\1"， name)
     name = name.replace("CCTV1综合", "CCTV1")
     name = name.replace("CCTV2财经", "CCTV2")
     name = name.replace("CCTV3综艺", "CCTV3")
