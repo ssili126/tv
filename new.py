@@ -666,7 +666,7 @@ def modify_urls(url: str) -> list[str]:
     ip_address = url[ip_start_index:ip_end_index]
     port = url[ip_end_index:]
     for i in range(1, 256):
-        modified_ip = f"{ip_address.rsplit('.',1)[0]}。{i}"
+        modified_ip = f"{ip_address.rsplit('.',1)[0]}.{i}"
         modified_url = f"{base_url}{modified_ip}{port}{IPTV_PATH}"
         modified_urls.append(modified_url)
     return modified_urls
