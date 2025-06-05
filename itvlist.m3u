@@ -1,3 +1,3 @@
 #EXTM3U
-#EXTINF:-1 group-title="其他频道",活动直播
-http://112.91.103。34:9919/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="央视频道",*CCTV3
+http://112.27.145.212:9901/tsfile/live/1502_1.m3u8?key=txiptv&playlive=1&authid=0
