@@ -910,12 +910,12 @@ def write_m3u8(results: List[Tuple[str, str, float]]) -> None:
                     if channel_counters[channel_name] >= IPTV_SAVE_NUM:
                         continue
                     else:
-                        文件。write(f"#EXTINF:-1 group-title=\"卫视频道\",{channel_name}\n")
-                        文件。write(f"{channel_url}\n")
+                        write(f"#EXTINF:-1 group-title=\"卫视频道\",{channel_name}\n")
+                        write(f"{channel_url}\n")
                         channel_counters[channel_name] += 1
                 else:
-                    文件。write(f"#EXTINF:-1 group-title=\"卫视频道\",{channel_name}\n")
-                    文件。write(f"{channel_url}\n")
+                    write(f"#EXTINF:-1 group-title=\"卫视频道\",{channel_name}\n")
+                    write(f"{channel_url}\n")
                     channel_counters[channel_name] = 1
         channel_counters = {}
         # file.write('其他频道,#genre#\n')
@@ -926,12 +926,12 @@ def write_m3u8(results: List[Tuple[str, str, float]]) -> None:
                     if channel_counters[channel_name] >= IPTV_SAVE_NUM:
                         continue
                     else:
-                        文件。write(f"#EXTINF:-1 group-title=\"其他频道\",{channel_name}\n")
-                        文件。write(f"{channel_url}\n")
+                        write(f"#EXTINF:-1 group-title=\"其他频道\",{channel_name}\n")
+                        write(f"{channel_url}\n")
                         channel_counters[channel_name] += 1
                 else:
-                    文件。write(f"#EXTINF:-1 group-title=\"其他频道\",{channel_name}\n")
-                    文件。write(f"{channel_url}\n")
+                    write(f"#EXTINF:-1 group-title=\"其他频道\",{channel_name}\n")
+                    write(f"{channel_url}\n")
                     channel_counters[channel_name] = 1
 
 
