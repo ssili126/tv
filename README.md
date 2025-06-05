@@ -1,5 +1,5 @@
 # 自动获取酒店源  组播源 #
-## 代码复制自[AQinTrue](https://github.com/AQinTrue/AQinTrue)。
+## 代码复制自[AQinTrue](https://github.com/AQinTrue/AQinTrue),采用异步的方式优化网络请求。
 ## 不再依赖chrome浏览器及fofa等网站，windows系统可直接运行itvall.exe文件，大概45分钟。 ##
 ### docker未重新打包。。。。。。
 
