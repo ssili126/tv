@@ -1,0 +1,14 @@
+CCTV10,http://182.126.119.43:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0,1.758 MB/s
+CCTV11,http://182.126.119.43:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0,1.607 MB/s
+CCTV12,http://182.126.119.43:9901/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0,1.401 MB/s
+CCTV15,http://182.126.119.43:9901/tsfile/live/0015_1.m3u8?key=txiptv&playlive=1&authid=0,1.060 MB/s
+CCTV17,http://182.126.119.43:9901/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0,1.305 MB/s
+东南卫视,http://182.126.119.43:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0,1.218 MB/s
+东方卫视,http://182.126.119.43:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0,1.607 MB/s
+安徽卫视,http://182.126.119.43:9901/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0,1.129 MB/s
+广东卫视,http://182.126.119.43:9901/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0,1.289 MB/s
+法制,http://182.126.119.43:9901/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0,1.129 MB/s
+湖北卫视,http://182.126.119.43:9901/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0,1.218 MB/s
+甘肃卫视,http://182.126.119.43:9901/tsfile/live/0141_1.m3u8?key=txiptv&playlive=1&authid=0,1.060 MB/s
+都市,http://182.126.119.43:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0,1.070 MB/s
+黑龙江卫视,http://182.126.119.43:9901/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0,1.346 MB/s
