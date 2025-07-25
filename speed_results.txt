@@ -1,3 +1,0 @@
-CCTV8,http://111.9.163.186:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0,1.204 MB/s
-CCTV11,http://111.9.163.186:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0,1.204 MB/s
-四川乡村,http://111.9.163.186:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0,1.204 MB/s
