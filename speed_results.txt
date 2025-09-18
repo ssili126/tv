@@ -1,0 +1,1 @@
+宁夏卫视,http://113.57.93.165:9900/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
