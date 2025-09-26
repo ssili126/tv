@@ -1,0 +1,14 @@
+CCTV3,http://125.43.240.203:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0,1.149 MB/s
+云南卫视,http://125.43.240.203:9901/tsfile/live/0119_1.m3u8?key=txiptv&playlive=1&authid=0,1.219 MB/s
+北京卫视,http://125.43.240.203:9901/tsfile/live/0107_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
+安徽卫视,http://125.43.240.203:9901/tsfile/live/0130_1.m3u8?key=txiptv&playlive=1&authid=0,1.205 MB/s
+山西卫视,http://125.43.240.203:9901/tsfile/live/0118_1.m3u8?key=txiptv&playlive=1&authid=0,1.138 MB/s
+江西卫视,http://125.43.240.203:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
+河北卫视,http://125.43.240.203:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
+河南民生,http://125.43.240.203:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0,1.183 MB/s
+河南都市,http://125.43.240.203:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
+浙江卫视,http://125.43.240.203:9901/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0,1.058 MB/s
+湖北卫视,http://125.43.240.203:9901/tsfile/live/0132_1.m3u8?key=txiptv&playlive=1&authid=0,1.056 MB/s
+湖南卫视,http://125.43.240.203:9901/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0,1.298 MB/s
+金鹰卡通,http://125.43.240.203:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=1&authid=0,1.073 MB/s
+魅力音乐,http://125.43.240.203:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0,0.949 MB/s
