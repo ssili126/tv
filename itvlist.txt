@@ -1,3 +1,7 @@
 央视频道,#genre#
+CCTV10,http://182.114.49.90:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0
 卫视频道,#genre#
+东方卫视,http://182.114.49.90:9901/tsfile/live/0107_1.m3u8?key=txiptv&playlive=1&authid=0
+北京卫视,http://182.114.49.90:9901/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0
+西藏卫视,http://218.13.170.98:9901/tsfile/live/0111_1.m3u8?key=txiptv&playlive=1&authid=0
 其他频道,#genre#
