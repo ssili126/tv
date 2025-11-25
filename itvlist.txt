@@ -1,3 +1,8 @@
 央视频道,#genre#
+CCTV13,http://182.126.119.133:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV15,http://182.126.119.133:9901/tsfile/live/0015_1.m3u8?key=txiptv&playlive=1&authid=0
 卫视频道,#genre#
+甘肃卫视,http://182.126.119.133:9901/tsfile/live/0141_1.m3u8?key=txiptv&playlive=1&authid=0
+黑龙江卫视,http://182.126.119.133:9901/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0
 其他频道,#genre#
+法制,http://182.126.119.133:9901/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0
