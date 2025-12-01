@@ -1,8 +1,0 @@
-CCTV1,http://125.42.148.85:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0,1.103 MB/s
-CCTV4,http://125.42.148.85:9901/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0,1.357 MB/s
-CCTV7,http://125.42.148.85:9901/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0,1.040 MB/s
-CCTV11,http://125.42.148.85:9901/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0,1.357 MB/s
-CCTV12,http://125.42.148.85:9901/tsfile/live/1011_1.m3u8?key=txiptv&playlive=1&authid=0,1.103 MB/s
-CCTV13,http://125.42.148.85:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&authid=0,1.040 MB/s
-CCTV15,http://125.42.148.85:9901/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0,1.159 MB/s
-河南卫视,http://125.42.148.85:9901/tsfile/live/1015_1.m3u8?key=txiptv&playlive=1&authid=0,1.254 MB/s
