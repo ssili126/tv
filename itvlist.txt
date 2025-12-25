@@ -1,3 +1,15 @@
 央视频道,#genre#
+CCTV1,http://182.114.48.53:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV5,http://182.114.48.53:9901/tsfile/live/0005_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV11,http://182.114.48.53:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV14,http://182.114.48.53:9901/tsfile/live/0014_1.m3u8?key=txiptv&playlive=1&authid=0
 卫视频道,#genre#
+东方卫视,http://182.114.48.53:9901/tsfile/live/0107_1.m3u8?key=txiptv&playlive=1&authid=0
+山西卫视,http://182.114.48.53:9901/tsfile/live/0118_1.m3u8?key=txiptv&playlive=1&authid=0
+江苏卫视,http://182.114.48.53:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0
+河南卫视,http://182.114.48.53:9901/tsfile/live/0139_1.m3u8?key=txiptv&playlive=1&authid=0
+浙江卫视,http://182.114.48.53:9901/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0
+深圳卫视,http://182.114.48.53:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0
+湖南卫视,http://182.114.48.53:9901/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0
 其他频道,#genre#
+河南都市报道,http://182.114.48.53:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0
