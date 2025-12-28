@@ -1,7 +1,10 @@
 央视频道,#genre#
-CCTV5,http://119.163.228.48:9901/tsfile/live/0005_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV5+,http://119.163.228.48:9901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV15,http://119.163.228.48:9901/tsfile/live/0016_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV少儿,http://119.163.228.48:9901/tsfile/live/0015_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV1,http://61.136.172.236:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV8,http://124.228.160.14:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV11,http://124.228.160.14:9901/tsfile/live/0011_2.m3u8?key=txiptv&playlive=1&authid=0
+CCTV13,http://61.136.172.236:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0
 卫视频道,#genre#
+河北卫视,http://61.136.172.236:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=1&authid=0
+浙江卫视,http://124.228.160.14:9901/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0
 其他频道,#genre#
+湖南公共,http://124.228.160.14:9901/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0
