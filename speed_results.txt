@@ -1,0 +1,8 @@
+CCTV1,http://101.74.28.103:9901/tsfile/live/1005_1.m3u8?key=txiptv&playlive=0&authid=0,0.001 MB/s
+CCTV2,http://125.42.151.151:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0,0.101 MB/s
+CCTV13,http://113.57.93.165:9900/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0,0.101 MB/s
+北京卫视,http://115.48.161.95:9901/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0,0.101 MB/s
+江西卫视,http://115.48.161.95:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0,0.101 MB/s
+江西卫视,http://125.42.151.151:9901/tsfile/live/0119_1.m3u8?key=txiptv&playlive=1&authid=0,0.101 MB/s
+江西卫视,http://113.57.93.165:9900/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0,0.101 MB/s
+灵宝新闻综合,http://115.48.161.95:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0,0.101 MB/s
