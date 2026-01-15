@@ -1,6 +1,7 @@
 name: itvlist
 
 on:
+  workflow_dispatch:  # 添加这行以允许手动触发
   schedule:
     - cron: '0 21,9 * * *'
   push:
