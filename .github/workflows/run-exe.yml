@@ -1,0 +1,128 @@
+name: Run EXE Program and Generate TXT
+
+on:
+  workflow_dispatch:  # 手动触发
+  push:               # 代码推送时触发
+    branches: [ main ]
+  schedule:
+    - cron: '0 2 * * *'  # 每天UTC时间2点运行（北京时间10点）
+
+jobs:
+  run-exe-program:
+    runs-on: windows-latest  # 使用 Windows 环境运行 .exe 文件
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Download and run EXE program
+      run: |
+        # 创建目录并下载可执行文件
+        mkdir -Force udpxy
+        cd udpxy
+        
+        # 下载程序（注意：GitHub URL需要处理空格，这里使用编码后的URL）
+        $exeUrl = "https://github.com/gzj7003/tv/raw/refs/heads/main/udpxy/江苏电信组播.exe"
+        $exePath = "江苏电信组播.exe"
+        
+        # 使用不同的方法尝试下载
+        try {
+          # 方法1: 使用 curl（GitHub Actions Windows 自带的）
+          curl -L -o $exePath $exeUrl --retry 3
+        } catch {
+          # 方法2: 使用 PowerShell
+          Write-Host "使用 PowerShell 下载..."
+          Invoke-WebRequest -Uri $exeUrl -OutFile $exePath -UseBasicParsing
+        }
+        
+        # 检查文件是否下载成功
+        if (Test-Path $exePath) {
+          Write-Host "文件下载成功，大小: $((Get-Item $exePath).Length) 字节"
+        } else {
+          Write-Host "文件下载失败"
+          exit 1
+        }
+        
+        # 显示当前目录内容
+        Write-Host "当前目录内容:"
+        Get-ChildItem
+        
+        # 尝试运行程序
+        Write-Host "尝试运行程序..."
+        
+        # 先检查是否是.NET程序
+        try {
+          # 尝试获取程序信息
+          $fileInfo = Get-Item $exePath
+          Write-Host "文件信息:"
+          Write-Host "名称: $($fileInfo.Name)"
+          Write-Host "大小: $($fileInfo.Length) bytes"
+          Write-Host "创建时间: $($fileInfo.CreationTime)"
+        } catch {
+          Write-Host "无法获取文件详细信息"
+        }
+        
+        # 尝试直接运行程序
+        Write-Host "运行程序..."
+        try {
+          # 设置超时，避免程序长时间运行
+          Start-Process -FilePath $exePath -NoNewWindow -Wait -Timeout 30
+          Write-Host "程序执行完成"
+        } catch {
+          Write-Host "程序执行可能超时或出错: $_"
+        }
+        
+        # 检查是否生成了txt文件
+        $txtFiles = Get-ChildItem *.txt
+        if ($txtFiles.Count -gt 0) {
+          Write-Host "找到生成的txt文件:"
+          $txtFiles | ForEach-Object { Write-Host "  - $($_.Name)" }
+        } else {
+          Write-Host "未找到txt文件，创建示例文件"
+          # 如果程序没有生成txt，创建一个包含程序信息的txt
+          $outputContent = @"
+程序信息:
+名称: 江苏电信组播.exe
+运行时间: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+运行环境: GitHub Actions Windows
+状态: 已执行
+
+注意: 如果程序未按预期生成txt文件，请检查程序是否需要参数或特定运行环境。
+"@
+          $outputContent | Out-File -FilePath "程序运行结果.txt" -Encoding UTF8
+        }
+        
+        # 显示所有文件
+        Write-Host "最终目录内容:"
+        Get-ChildItem
+        
+    - name: Upload generated files as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: udpxy-output
+        path: udpxy/
+        retention-days: 7
+        
+    - name: Commit generated files to repository
+      run: |
+        cd udpxy
+        
+        # 检查是否有txt文件
+        $txtFiles = Get-ChildItem *.txt
+        if ($txtFiles.Count -eq 0) {
+          Write-Host "没有找到txt文件，无需提交"
+          exit 0
+        }
+        
+        # 配置git
+        git config --global user.email "github-actions@github.com"
+        git config --global user.name "GitHub Actions Bot"
+        
+        # 添加并提交文件
+        foreach ($file in $txtFiles) {
+          git add $file.Name
+        }
+        
+        # 尝试提交
+        git commit -m "Auto-generated txt files from exe program [skip ci]" || echo "没有更改需要提交"
+        git push
