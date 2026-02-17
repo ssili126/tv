@@ -1,3 +1,6 @@
 央视频道,#genre#
 卫视频道,#genre#
+北京卫视,http://115.48.160.128:9901/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0
+江西卫视,http://115.48.160.128:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0
 其他频道,#genre#
+灵宝新闻综合,http://115.48.160.128:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0
