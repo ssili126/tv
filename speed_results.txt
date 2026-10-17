@@ -1,4 +1,5 @@
-CCTV8,http://123.55.3.253:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0,1.247 MB/s
-山西卫视,http://182.114.49.204:9901/tsfile/live/0118_1.m3u8?key=txiptv&playlive=1&authid=0,1.247 MB/s
-河南民生,http://123.55.3.253:9901/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0,1.247 MB/s
-深圳卫视,http://123.55.3.253:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0,1.247 MB/s
+CCTV6,http://125.93.74.27:9002/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0,0.296 MB/s
+CCTV14,http://125.93.74.27:9002/tsfile/live/0014_1.m3u8?key=txiptv&playlive=1&authid=0,0.296 MB/s
+吉林卫视,http://125.93.74.27:9002/tsfile/live/0116_1.m3u8?key=txiptv&playlive=1&authid=0,0.296 MB/s
+宁夏卫视,http://125.93.74.27:9002/tsfile/live/0112_1.m3u8?key=txiptv&playlive=1&authid=0,0.296 MB/s
+湖北卫视,http://125.93.74.27:9002/tsfile/live/0132_1.m3u8?key=txiptv&playlive=1&authid=0,0.296 MB/s
