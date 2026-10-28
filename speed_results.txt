@@ -1,7 +1,0 @@
-CCTV12,http://125.43.244.237:9901/tsfile/live/1015_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
-CCTV14,http://125.43.244.237:9901/tsfile/live/1017_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
-安徽卫视,http://125.43.244.237:9901/tsfile/live/1037_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
-河北卫视,http://125.43.244.237:9901/tsfile/live/1032_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
-河南都市,http://125.43.244.237:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
-金鹰卡通,http://125.43.244.237:9901/tsfile/live/1040_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
-魅力音乐,http://125.43.244.237:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0,0.001 MB/s
